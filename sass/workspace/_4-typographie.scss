@@ -1,0 +1,66 @@
+//typography
+
+// .h1 {
+//   color: $white;
+//   font-size: $f26;
+//   text-align: center;
+//   font-family: $mm;
+// }
+
+h2 {
+  color: $dark-grey;
+  font-size: $f45;
+  text-align: center;
+  font-family: $ostb;
+}
+
+h3 {
+  color: $dark-grey;
+  //color: $white;
+  font-size: $f80;
+  text-align: center;
+  font-family: $ostb;
+}
+
+h6 {
+  text-transform: uppercase;
+  color: $light-grey;
+  font-family: $lt;
+  font-size: $f14;
+  letter-spacing: 0.1rem;
+}
+
+p {
+  font-size: $f14;
+  color: $light-grey;
+  font-family: $ost;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+a {
+  cursor: pointer;
+  font-family: $ltb;
+  font-size: $f14;
+  text-transform: uppercase;
+  color: $light-grey;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+
+  &:hover {
+    text-decoration: none;
+    color: $red;
+  }
+}
+
+.bold {
+  font-weight: bold;
+  color: $black;
+}
+
+.italic {
+  font-style: italic;
+  letter-spacing: -0.1rem;
+}

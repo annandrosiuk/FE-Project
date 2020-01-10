@@ -1,0 +1,110 @@
+// ---------- Header Desktop ---------- //
+.wrap-header {
+  position: absolute;
+  background-color: transparent;
+  z-index: 1000;
+  width: 100%;
+  height: 12.5rem;
+  @include dis-flex(space-between, center);
+}
+
+// ---------- Logo ---------- //
+.logo {
+  width: 20rem;
+  height: 100%;
+
+  a {
+    display: block;
+    width: 10.5rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+// ---------- Menu ---------- //
+
+.main_menu {
+  @include flex-center;
+
+  li {
+    position: relative;
+    padding-right: 4rem;
+
+    &:hover .sub_menu {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+}
+
+.main_menu > li > .sub_menu {
+  top: 100%;
+  left: 0;
+  position: absolute;
+}
+
+.sub_menu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 22.5rem;
+  background-color: $light-black;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+
+  li {
+    padding: 1.5rem 0 1.5rem 1rem;
+
+    &:first-child {
+      padding-top: 3rem;
+    }
+
+    &:last-child {
+      padding-bottom: 3rem;
+    }
+  }
+}
+
+// ---------- Icomoons ---------- //
+.icon-header {
+  @include dis-flex(space-between, center);
+  text-align: center;
+  margin-right: 5rem;
+
+  li {
+    padding-right: 2rem;
+
+    &:last-child {
+      padding-right: 0rem;
+    }
+
+    a {
+      font-size: $f18;
+    }
+  }
+}
+
+.icon-tripadvisor:before {
+  content: "\e900";
+}
+
+.icon-twitter:before {
+  content: "\ea96";
+}
+
+.icon-facebook:before {
+  content: "\ea90";
+}
+
+.icon-instagram:before {
+  content: "\ea92";
+}
