@@ -27,7 +27,7 @@
           <li><a href="#">Menus</a></li>
           <li><a href="#" class="have_sub_menu">Reservation</a></li>
           <li><a href="#">About us</a></li>
-          <li><a href="#">Features</a>
+          <li><a href="#">Features &#x2935</a>
             <ul class="sub_menu">
               <li><a href="#">Shop Page</a></li>
               <li><a href="#">Shopping Cart</a></li>
@@ -65,21 +65,25 @@
     </div>
 
     <!-- Menu Mobile -->
-    <div class="wrap-side-menu">
-      <nav class="side-menu">
+    <div class="wrap-side-menu" id='wrap_side_menu'>
+      <nav class="side-menu" id="side-menu">
         <ul class="main-menu">
           <li><a href="index.html">Home</a></li>
           <li><a href="#">Menus</a></li>
-          <li><a href="#">Reservation</a></li>
+          <li><a href="#">Reservation</a>
+          </li>
           <li><a href="#">About us</a></li>
           <li>
             <a href="#">Features</a>
-            <i class="arrow-main-menu icon-instagram" aria-hidden="true"></i>
-            <ul class="sub-menu">
-              <li><a href="#">Shop Page</a></li>
-              <li><a href="#">Shopping Cart</a></li>
-              <li><a href="#">Check Out</a></li>
-            </ul>
+            <i class="icon-keyboard_arrow_down" id="arrow-main-menu" aria-hidden="true"></i>
+            <div id="wrap-sub-menu" class="wrap-sub-menu">
+              <ul class="sub-menu" id="sub-menu">
+                <li><a href="#">Shop Page</a></li>
+                <li><a href="#">Shopping Cart</a></li>
+                <li><a href="#">Check Out</a></li>
+              </ul>
+            </div>
+
           </li>
           <li><a href="#">Blog</a></li>
           <li><a href="#">Contact</a></li>

@@ -67,7 +67,7 @@ table {
 
 @font-face {
   font-family: "icomoons";
-  src: url("../../fonts/icomoon/fonts/icomoon.ttf") format("truetype");
+  src: url("../fonts/icomoon/fonts/icomoon.ttf") format("truetype");
   font-weight: normal;
   font-style: normal; }
 
@@ -84,43 +84,43 @@ table {
 
 @font-face {
   font-family: "Lato";
-  src: url("../../fonts/Lato/Lato-Regular.ttf") format("truetype");
+  src: url("../fonts/Lato/Lato-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: "Lato-Black";
-  src: url("../../fonts/Lato/Lato-Black.ttf") format("truetype"), url("Lato-Black.woff2") format("woff2"), url("Lato-Black.woff") format("woff");
+  src: url("../fonts/Lato/Lato-Black.ttf") format("truetype"), url("Lato-Black.woff2") format("woff2"), url("Lato-Black.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: "Old Standard TT";
-  src: url("../../fonts/Old_Standard_TT/OldStandard-Regular.ttf") format("truetype"), url("OldStandard-Regular.woff2") format("woff2"), url("OldStandard-Regular.woff") format("woff");
+  src: url("../fonts/Old_Standard_TT/OldStandard-Regular.ttf") format("truetype"), url("OldStandard-Regular.woff2") format("woff2"), url("OldStandard-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: "Old Standard TT Black";
-  src: url("../../fonts/Old_Standard_TT/OldStandard-Bold.ttf") format("truetype");
+  src: url("../fonts/Old_Standard_TT/OldStandard-Bold.ttf") format("truetype");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: "Silhouetto-Script";
-  src: url("../../fonts/Silhouetto-Script/Silhouetto-Regular.ttf") format("truetype"), url("Silhouetto-Regular.otf") format("opentype"), url("Silhouetto-Regular.woff2") format("woff2"), url("Silhouetto-Regular.woff") format("woff");
+  src: url("../fonts/Silhouetto-Script/Silhouetto-Regular.ttf") format("truetype"), url("Silhouetto-Regular.otf") format("opentype"), url("Silhouetto-Regular.woff2") format("woff2"), url("Silhouetto-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: "OpenSans";
-  src: url("../../fonts/OpenSans/OpenSans-Regular.ttf");
+  src: url("../fonts/OpenSans/OpenSans-Regular.ttf");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: "OpenSans-Bold";
-  src: url("../../fonts/OpenSans/OpenSans-Bold.ttf");
+  src: url("../fonts/OpenSans/OpenSans-Bold.ttf");
   font-weight: normal;
   font-style: normal; }
 
@@ -191,6 +191,22 @@ a {
   100% {
     opacity: 1;
     visibility: visible; } }
+
+@-webkit-keyframes animation-slide-in-down {
+  0% {
+    -webkit-transform: translate(0, 30%);
+            transform: translate(0, 30%); }
+  100% {
+    -webkit-transform: translate(0, 0%);
+            transform: translate(0, 0%); } }
+
+@keyframes animation-slide-in-down {
+  0% {
+    -webkit-transform: translate(0, 30%);
+            transform: translate(0, 30%); }
+  100% {
+    -webkit-transform: translate(0, 0%);
+            transform: translate(0, 0%); } }
 
 @-webkit-keyframes scale-up-center {
   0% {
@@ -366,7 +382,8 @@ body {
           align-items: center;
   height: 9rem;
   background-color: white;
-  display: none; }
+  display: none;
+  z-index: 10; }
 
 .logo-mobile {
   display: -webkit-box;
@@ -404,8 +421,7 @@ body {
       opacity: 1;
       -webkit-transform: rotate(45deg) translate(-1.2rem, -1.4rem);
           -ms-transform: rotate(45deg) translate(-1.2rem, -1.4rem);
-              transform: rotate(45deg) translate(-1.2rem, -1.4rem);
-      background: #232323; }
+              transform: rotate(45deg) translate(-1.2rem, -1.4rem); }
     .burger-box input:checked ~ span:nth-last-child(3) {
       opacity: 0;
       -webkit-transform: rotate(0deg) scale(0.2, 0.2);
@@ -421,7 +437,7 @@ body {
     height: 0.4rem;
     margin-bottom: 0.5rem;
     position: relative;
-    background: #cdcdcd;
+    background: #333333;
     -webkit-border-radius: 0.3rem;
             border-radius: 0.3rem;
     z-index: 1;
@@ -454,9 +470,30 @@ body {
 .wrap-side-menu {
   width: 100%;
   background-color: #222222;
+  -webkit-transition: 0.6s;
+  -o-transition: 0.6s;
+  transition: 0.6s;
+  margin-top: 0; }
+
+.wrap-sub-menu {
+  width: 100%;
+  background-color: #222222;
+  -webkit-transition: 0.6s;
+  -o-transition: 0.6s;
+  transition: 0.6s;
+  margin-top: 0; }
+
+.show {
+  margin-top: 0 !important;
+  /* to overide inline style */ }
+
+.hide {
+  display: block !important; }
+
+.wrap-sub-menu {
   display: none;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem; }
+  -webkit-animation: showSubMenu 1s linear forwards;
+          animation: showSubMenu 1s linear forwards; }
 
 .side-menu {
   width: 100%; }
@@ -464,12 +501,13 @@ body {
     margin-bottom: 0; }
     .side-menu .main-menu a {
       color: #ededed;
-      line-height: 2.86; }
+      line-height: 2.86;
+      display: block; }
     .side-menu .main-menu > li {
       padding-left: 3rem;
       color: #ededed;
       position: relative; }
-    .side-menu .main-menu .arrow-main-menu {
+    .side-menu .main-menu #arrow-main-menu {
       font-size: 1.4rem;
       position: absolute;
       right: 2rem;
@@ -478,19 +516,22 @@ body {
       -webkit-transition: all 0.4s;
       -o-transition: all 0.4s;
       transition: all 0.4s; }
-      .side-menu .main-menu .arrow-main-menu:hover {
+      .side-menu .main-menu #arrow-main-menu:hover {
         color: #e74c3c;
         cursor: pointer; }
-  .side-menu .sub-menu {
-    display: none; }
-    .side-menu .sub-menu a {
-      font-family: "Lato";
-      color: #808080;
-      line-height: 2.5; }
-    .side-menu .sub-menu > li {
-      padding-left: 3rem; }
-      .side-menu .sub-menu > li:last-child {
-        padding-bottom: 1.5rem; }
+  .side-menu .sub-menu a {
+    font-family: "Lato";
+    color: #808080;
+    line-height: 2.5;
+    display: block;
+    padding: 1em 0;
+    -webkit-transition: 0.1s;
+    -o-transition: 0.1s;
+    transition: 0.1s; }
+  .side-menu .sub-menu > li {
+    padding-left: 3rem; }
+    .side-menu .sub-menu > li:last-child {
+      padding-bottom: 1.5rem; }
   .side-menu a:hover {
     text-decoration: none;
     color: #e74c3c; }
@@ -503,6 +544,10 @@ body {
 @media (min-width: 1100px) {
   .wrap-side-menu {
     display: none; } }
+
+.icon-keyboard_arrow_down:before {
+  content: "\e901";
+  font-size: 2.4rem; }
 
 /*  Reset */
 /*
@@ -573,7 +618,7 @@ table {
 
 @font-face {
   font-family: "icomoons";
-  src: url("../../fonts/icomoon/fonts/icomoon.ttf") format("truetype");
+  src: url("../fonts/icomoon/fonts/icomoon.ttf") format("truetype");
   font-weight: normal;
   font-style: normal; }
 
@@ -590,43 +635,43 @@ table {
 
 @font-face {
   font-family: "Lato";
-  src: url("../../fonts/Lato/Lato-Regular.ttf") format("truetype");
+  src: url("../fonts/Lato/Lato-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: "Lato-Black";
-  src: url("../../fonts/Lato/Lato-Black.ttf") format("truetype"), url("Lato-Black.woff2") format("woff2"), url("Lato-Black.woff") format("woff");
+  src: url("../fonts/Lato/Lato-Black.ttf") format("truetype"), url("Lato-Black.woff2") format("woff2"), url("Lato-Black.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: "Old Standard TT";
-  src: url("../../fonts/Old_Standard_TT/OldStandard-Regular.ttf") format("truetype"), url("OldStandard-Regular.woff2") format("woff2"), url("OldStandard-Regular.woff") format("woff");
+  src: url("../fonts/Old_Standard_TT/OldStandard-Regular.ttf") format("truetype"), url("OldStandard-Regular.woff2") format("woff2"), url("OldStandard-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: "Old Standard TT Black";
-  src: url("../../fonts/Old_Standard_TT/OldStandard-Bold.ttf") format("truetype");
+  src: url("../fonts/Old_Standard_TT/OldStandard-Bold.ttf") format("truetype");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: "Silhouetto-Script";
-  src: url("../../fonts/Silhouetto-Script/Silhouetto-Regular.ttf") format("truetype"), url("Silhouetto-Regular.otf") format("opentype"), url("Silhouetto-Regular.woff2") format("woff2"), url("Silhouetto-Regular.woff") format("woff");
+  src: url("../fonts/Silhouetto-Script/Silhouetto-Regular.ttf") format("truetype"), url("Silhouetto-Regular.otf") format("opentype"), url("Silhouetto-Regular.woff2") format("woff2"), url("Silhouetto-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: "OpenSans";
-  src: url("../../fonts/OpenSans/OpenSans-Regular.ttf");
+  src: url("../fonts/OpenSans/OpenSans-Regular.ttf");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: "OpenSans-Bold";
-  src: url("../../fonts/OpenSans/OpenSans-Bold.ttf");
+  src: url("../fonts/OpenSans/OpenSans-Bold.ttf");
   font-weight: normal;
   font-style: normal; }
 
@@ -687,6 +732,14 @@ a {
   100% {
     opacity: 1;
     visibility: visible; } }
+
+@keyframes animation-slide-in-down {
+  0% {
+    -webkit-transform: translate(0, 30%);
+            transform: translate(0, 30%); }
+  100% {
+    -webkit-transform: translate(0, 0%);
+            transform: translate(0, 0%); } }
 
 @keyframes scale-up-center {
   0% {
@@ -842,7 +895,8 @@ body {
           align-items: center;
   height: 9rem;
   background-color: white;
-  display: none; }
+  display: none;
+  z-index: 10; }
 
 .logo-mobile {
   display: -webkit-box;
@@ -880,8 +934,7 @@ body {
       opacity: 1;
       -webkit-transform: rotate(45deg) translate(-1.2rem, -1.4rem);
           -ms-transform: rotate(45deg) translate(-1.2rem, -1.4rem);
-              transform: rotate(45deg) translate(-1.2rem, -1.4rem);
-      background: #232323; }
+              transform: rotate(45deg) translate(-1.2rem, -1.4rem); }
     .burger-box input:checked ~ span:nth-last-child(3) {
       opacity: 0;
       -webkit-transform: rotate(0deg) scale(0.2, 0.2);
@@ -897,7 +950,7 @@ body {
     height: 0.4rem;
     margin-bottom: 0.5rem;
     position: relative;
-    background: #cdcdcd;
+    background: #333333;
     -webkit-border-radius: 0.3rem;
             border-radius: 0.3rem;
     z-index: 1;
@@ -930,9 +983,30 @@ body {
 .wrap-side-menu {
   width: 100%;
   background-color: #222222;
+  -webkit-transition: 0.6s;
+  -o-transition: 0.6s;
+  transition: 0.6s;
+  margin-top: 0; }
+
+.wrap-sub-menu {
+  width: 100%;
+  background-color: #222222;
+  -webkit-transition: 0.6s;
+  -o-transition: 0.6s;
+  transition: 0.6s;
+  margin-top: 0; }
+
+.show {
+  margin-top: 0 !important;
+  /* to overide inline style */ }
+
+.hide {
+  display: block !important; }
+
+.wrap-sub-menu {
   display: none;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem; }
+  -webkit-animation: showSubMenu 1s linear forwards;
+          animation: showSubMenu 1s linear forwards; }
 
 .side-menu {
   width: 100%; }
@@ -940,12 +1014,13 @@ body {
     margin-bottom: 0; }
     .side-menu .main-menu a {
       color: #ededed;
-      line-height: 2.86; }
+      line-height: 2.86;
+      display: block; }
     .side-menu .main-menu > li {
       padding-left: 3rem;
       color: #ededed;
       position: relative; }
-    .side-menu .main-menu .arrow-main-menu {
+    .side-menu .main-menu #arrow-main-menu {
       font-size: 1.4rem;
       position: absolute;
       right: 2rem;
@@ -954,19 +1029,22 @@ body {
       -webkit-transition: all 0.4s;
       -o-transition: all 0.4s;
       transition: all 0.4s; }
-      .side-menu .main-menu .arrow-main-menu:hover {
+      .side-menu .main-menu #arrow-main-menu:hover {
         color: #e74c3c;
         cursor: pointer; }
-  .side-menu .sub-menu {
-    display: none; }
-    .side-menu .sub-menu a {
-      font-family: "Lato";
-      color: #808080;
-      line-height: 2.5; }
-    .side-menu .sub-menu > li {
-      padding-left: 3rem; }
-      .side-menu .sub-menu > li:last-child {
-        padding-bottom: 1.5rem; }
+  .side-menu .sub-menu a {
+    font-family: "Lato";
+    color: #808080;
+    line-height: 2.5;
+    display: block;
+    padding: 1em 0;
+    -webkit-transition: 0.1s;
+    -o-transition: 0.1s;
+    transition: 0.1s; }
+  .side-menu .sub-menu > li {
+    padding-left: 3rem; }
+    .side-menu .sub-menu > li:last-child {
+      padding-bottom: 1.5rem; }
   .side-menu a:hover {
     text-decoration: none;
     color: #e74c3c; }
@@ -979,5 +1057,9 @@ body {
 @media (min-width: 1100px) {
   .wrap-side-menu {
     display: none; } }
+
+.icon-keyboard_arrow_down:before {
+  content: "\e901";
+  font-size: 2.4rem; }
 
 /*# sourceMappingURL=../maps/main.css.map */
