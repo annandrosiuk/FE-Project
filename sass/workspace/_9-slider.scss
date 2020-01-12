@@ -28,27 +28,24 @@
     @include flex-center;
     flex-direction: column;
 
-    h3 {
-    }
-
     &:nth-child(1) {
-      background-image: url(../img/main.jpg);
+      background-image: url("../img/main.jpg");
     }
 
     &:nth-child(2) {
-      background-image: url(../img/main1.jpg);
+      background-image: url("../img/main1.jpg");
     }
 
     &:nth-child(3) {
-      background-image: url(../img/main2.jpg);
+      background-image: url("../img/main2.jpg");
     }
 
     &:nth-child(4) {
-      background-image: url(../img/main5.jpg);
+      background-image: url("../img/main5.jpg");
     }
 
     &:nth-child(5) {
-      background-image: url(../img/main4.jpg);
+      background-image: url("../img/main4.jpg");
     }
   }
 }
@@ -105,7 +102,6 @@
       color: $white;
       background-color: transparent;
       text-shadow: -1px 0 $black, 0 1px $black, 1px 0 $black, 0 -1px $black;
-
     }
   }
 
@@ -135,7 +131,19 @@
 }
 
 @media (max-width: 450px) {
-  .slide {
+  .slideShow__slide {
     background-position: center;
+
+    h3 {
+      font-size: $f50;
+    }
+  }
+  .btn-slide {
+    margin-top: 5rem;
+
+    .btn1,
+    .btn2 {
+      padding: 1rem 2rem;
+    }
   }
 }
