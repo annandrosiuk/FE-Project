@@ -4,7 +4,7 @@
   background-color: transparent;
   z-index: 1000;
   width: 100%;
-  height: 12.5rem;
+  padding: 4rem 0;
   @include dis-flex(space-between, center);
 }
 

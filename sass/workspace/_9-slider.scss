@@ -1,0 +1,141 @@
+.slider-section {
+  height: 100vh;
+  @include flex-center;
+}
+
+.slideShow {
+  position: relative;
+  @include basic(100vh, 100%);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.35);
+
+  &__container {
+    @include basic(100%, 100%);
+    overflow: hidden;
+  }
+
+  &__slider {
+    position: relative;
+    left: 0;
+    @include basic(100%, 500%);
+    transition: 300ms ease-in-out;
+    display: flex;
+  }
+
+  &__slide {
+    align-items: flex-start;
+    @include basic(100%, 20%);
+    background-size: cover;
+    @include flex-center;
+    flex-direction: column;
+
+    h3 {
+    }
+
+    &:nth-child(1) {
+      background-image: url(../../img/main.jpg);
+    }
+
+    &:nth-child(2) {
+      background-image: url(../../img/main1.jpg);
+    }
+
+    &:nth-child(3) {
+      background-image: url(../../img/main2.jpg);
+    }
+
+    &:nth-child(4) {
+      background-image: url(../../img/main5.jpg);
+    }
+
+    &:nth-child(5) {
+      background-image: url(../../img/main4.jpg);
+    }
+  }
+}
+
+.btn {
+  position: absolute;
+  bottom: 50vh;
+  @include basic(4rem, 4rem);
+  border-radius: 50%;
+  font-size: 4rem;
+  opacity: 0.5;
+  color: $light;
+  background: $light-grey;
+  cursor: pointer;
+  user-select: none;
+  transition: background 150ms ease-in-out;
+
+  &:first-child {
+    left: 1rem;
+  }
+
+  &:last-child {
+    right: 1rem;
+  }
+
+  &:hover {
+    background: $light-black;
+    opacity: 1;
+    transition: all 150ms ease-in-out;
+  }
+
+  &:active {
+    transform: scale(1.2);
+  }
+}
+
+.btn-slide {
+  margin-top: 5rem;
+
+  .btn1,
+  .btn2 {
+    cursor: pointer;
+    user-select: none;
+    padding: 1.5rem 4rem;
+  }
+
+  .btn1 {
+    color: $red;
+    text-shadow: -1px 0 $white, 0 1px $white, 1px 0 $white, 0 -1px $white;
+    margin-right: 2rem;
+    background-color: $white;
+
+    &:hover {
+      color: $white;
+      background-color: transparent;
+      text-shadow: -1px 0 $black, 0 1px $black, 1px 0 $black, 0 -1px $black;
+
+    }
+  }
+
+  .btn2 {
+    background-color: $red;
+
+    &:hover {
+      color: $red;
+      background-color: transparent;
+      text-shadow: none;
+    }
+  }
+}
+
+.icon-circle-right:before {
+  content: "\ea42";
+}
+
+.icon-circle-left:before {
+  content: "\ea44";
+}
+
+@media (max-width: 1024px) {
+  .slider-section {
+    margin-top: -9rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .slide {
+    background-position: center;
+  }
+}

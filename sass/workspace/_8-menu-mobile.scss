@@ -5,6 +5,7 @@
   background-color: white;
   display: none;
   z-index: 10;
+  //position: absolute;
 }
 // ---------- Logo ---------- //
 .logo-mobile {
@@ -83,6 +84,8 @@
 }
 // ---------- Menu mobile ---------- //
 .wrap-side-menu {
+  //position: absolute;
+  z-index: 4;
   width: 100%;
   background-color: $light-black;
   transition: 0.6s;
