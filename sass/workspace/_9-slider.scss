@@ -1,3 +1,4 @@
+// ---------- Slider Section ---------- //
 .slider-section {
   height: 100vh;
   @include flex-center;
@@ -47,9 +48,30 @@
     &:nth-child(5) {
       background-image: url("../img/main4.jpg");
     }
+
+    // &:nth-child(1) {
+    //   background-image: url(../img/main.jpg);
+    // }
+
+    // &:nth-child(2) {
+    //   background-image: url(../img/main1.jpg);
+    // }
+
+    // &:nth-child(3) {
+    //   background-image: url(../img/main2.jpg);
+    // }
+
+    // &:nth-child(4) {
+    //   background-image: url(../img/main5.jpg);
+    // }
+
+    // &:nth-child(5) {
+    //   background-image: url(../img/main4.jpg);
+    // }
   }
 }
 
+// ---------- Buttons '<' and '>' ---------- //
 .btn {
   position: absolute;
   bottom: 50vh;
@@ -82,6 +104,14 @@
   }
 }
 
+.icon-circle-right:before {
+  content: "\ea42";
+}
+
+.icon-circle-left:before {
+  content: "\ea44";
+}
+// ---------- Buttons on slider ---------- //
 .btn-slide {
   margin-top: 5rem;
 
@@ -114,14 +144,6 @@
       text-shadow: none;
     }
   }
-}
-
-.icon-circle-right:before {
-  content: "\ea42";
-}
-
-.icon-circle-left:before {
-  content: "\ea44";
 }
 
 @media (max-width: 1024px) {

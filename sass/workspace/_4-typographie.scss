@@ -15,12 +15,23 @@ h2 {
 }
 
 h3 {
-  color: $dark-grey;
   color: $white;
   font-size: $f90;
   text-align: center;
+  font-family: $ss;
+  font-weight: 700;
+  text-shadow: 1px 1px 1px rgba($color: $red, $alpha: 0.4), 1px 2px 1px rgba($color: $red, $alpha: 0.4),
+    1px 3px 1px rgba($color: $red, $alpha: 0.4), 1px 4px 1px rgba($color: $red, $alpha: 0.4),
+    1px 5px 1px rgba($color: $red, $alpha: 0.4), 1px 6px 1px rgba($color: $red, $alpha: 0.4),
+    1px 7px 1px rgba($color: $red, $alpha: 0.4), 1px 8px 1px rgba($color: $red, $alpha: 0.4),
+    1px 9px 1px rgba($color: $red, $alpha: 0.4), 1px 10px 1px rgba($color: $red, $alpha: 0.4);
+}
+
+h4 {
+  color: $dark-grey;
+  font-size: $f14;
   font-family: $ostb;
-  text-shadow: -1px 0 $black, 0 1px $black, 1px 0 $black, 0 -1px $black;
+  text-transform: uppercase;
 }
 
 h6 {
@@ -43,7 +54,6 @@ a {
   cursor: pointer;
   font-family: $ltb;
   font-size: $f14;
-  text-shadow: -1px 0 $black, 0 1px $black, 1px 0 $black, 0 -1px $black;
   text-transform: uppercase;
   color: $light;
   transition: all 0.4s;
