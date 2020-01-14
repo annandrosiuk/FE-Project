@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 function loadGoods() {
     //load goods on page
-    $.getJSON('../goods.json', function (data) {
+    $.getJSON('goods.json', function (data) {
         //console.log(data);
         let out = '';
         for (let key in data) {
