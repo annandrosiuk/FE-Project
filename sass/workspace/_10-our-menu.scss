@@ -61,62 +61,188 @@
   }
 }
 
-// ---------- Wrap for goods section ---------- //
-.wrap-goods {
-  width: 90%;
-  @include dis-flex(space-between, center);
+// ---------- Wrap for menu---------- //
+.tab-content {
+  width: 100%;
+}
+
+.content-wrapper {
+  @include dis-flex(space-around, center);
   flex-wrap: wrap;
+}
 
-  .single-good {
-    @include flex-center;
+.item-food {
+  width: 45%;
+  margin-bottom: 2rem;
+  @include dis-flex(space-between, center);
+
+  &__photo {
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    background-image: url("../img/menu/beer1.jpg");
+    background-size: cover;
+
+    a {
+      display: block;
+      cursor: pointer;
+      width: 7rem;
+      height: 7rem;
+      border-radius: 50%;
+    }
+  }
+
+  &__description {
+    width: 80%;
+    //border: 1px solid black;
+    @include dis-flex(flex-start, flex-start);
     flex-direction: column;
-    max-width: 25rem;
-    margin: 1%;
 
-    h4 {
-      padding: 1rem;
-      text-align: center;
-      text-overflow: ellipsis;
-      width: 100%;
-      white-space: nowrap;
-      overflow: hidden;
+    .food-info {
+      @include dis-flex(space-between, flex-end);
 
-      //   &:hover {
-      //     text-overflow: clip;
-      //     width: auto;
-      //     white-space: normal;
-      //   }
-    }
+      .info-line {
+        width: 18rem;
+        height: 1px;
+        margin: 0 1rem;
+        border-bottom: 1px solid $light-grey;
+      }
 
-    .image {
-      width: 90%;
-      height: 25rem;
-      padding: 1rem 0;
-    }
-
-    .price-good {
-      width: 100%;
-      @include dis-flex(space-around, center);
-      padding: 1rem;
-      border-bottom: 1px solid $black;
-
-      button {
-        cursor: pointer;
+      span {
+        font-family: $ostb;
+        font-size: $f14;
       }
     }
   }
 }
-
-@media (max-width: 780px) {
-  .goods {
-    width: 100%;
-    @include dis-flex(space-around, center);
-  }
+//photos for lunch section
+#lunch-wrapper .photo1 {
+  background-image: url("../img/menu/salad1.jpg");
 }
 
-@media (max-width: 420px) {
-  .goods {
-    width: 100%;
-    @include flex-center;
-  }
+#lunch-wrapper .photo2 {
+  background-image: url("../img/menu/salad2.jpg");
+}
+
+#lunch-wrapper .photo3 {
+  background-image: url("../img/menu/salad3.jpeg");
+}
+
+#lunch-wrapper .photo4 {
+  background-image: url("../img/menu/salad4.jpg");
+}
+
+#lunch-wrapper .photo5 {
+  background-image: url("../img/menu/salad5.jpeg");
+}
+
+#lunch-wrapper .photo6 {
+  background-image: url("../img/menu/wok1.jpeg");
+}
+
+#lunch-wrapper .photo7 {
+  background-image: url("../img/menu/wok3.jpg");
+}
+
+#lunch-wrapper .photo8 {
+  background-image: url("../img/menu/wok4.jpg");
+}
+
+//photos for dinner section
+#dinner-wrapper .photo1 {
+  background-image: url("../img/menu/steak1.jpeg");
+}
+
+#dinner-wrapper .photo2 {
+  background-image: url("../img/menu/steak2.jpg");
+}
+
+#dinner-wrapper .photo3 {
+  background-image: url("../img/menu/steak3.jpeg");
+}
+
+#dinner-wrapper .photo4 {
+  background-image: url("../img/menu/steak4.jpeg");
+}
+
+#dinner-wrapper .photo5 {
+  background-image: url("../img/menu/burger1.jpg");
+}
+
+#dinner-wrapper .photo6 {
+  background-image: url("../img/menu/burger2.jpg");
+}
+
+#dinner-wrapper .photo7 {
+  background-image: url("../img/menu/burger3.jpeg");
+}
+
+#dinner-wrapper .photo8 {
+  background-image: url("../img/menu/burger4.jpg");
+}
+
+//photos for dessert section
+#dessert-wrapper .photo1 {
+  background-image: url("../img/menu/desert1.jpg");
+}
+
+#dessert-wrapper .photo2 {
+  background-image: url("../img/menu/desert2.jpg");
+}
+
+#dessert-wrapper .photo3 {
+  background-image: url("../img/menu/desert3.jpeg");
+}
+
+#dessert-wrapper .photo4 {
+  background-image: url("../img/menu/desert4.jpeg");
+}
+
+#dessert-wrapper .photo5 {
+  background-image: url("../img/menu/desert1.jpg");
+}
+
+#dessert-wrapper .photo6 {
+  background-image: url("../img/menu/desert2.jpg");
+}
+
+#dessert-wrapper .photo7 {
+  background-image: url("../img/menu/desert3.jpeg");
+}
+
+#dessert-wrapper .photo8 {
+  background-image: url("../img/menu/desert4.jpeg");
+}
+
+//photos for drinks section
+#drinks-wrapper .photo1 {
+  background-image: url("../img/menu/drink1.jpg");
+}
+
+#drinks-wrapper .photo2 {
+  background-image: url("../img/menu/drink2.jpeg");
+}
+
+#drinks-wrapper .photo3 {
+  background-image: url("../img/menu/drink3.jpg");
+}
+
+#drinks-wrapper .photo4 {
+  background-image: url("../img/menu/drink4.jpg");
+}
+
+#drinks-wrapper .photo5 {
+  background-image: url("../img/menu/beer1.jpg");
+}
+
+#drinks-wrapper .photo6 {
+  background-image: url("../img/menu/beer2.jpg");
+}
+
+#drinks-wrapper .photo7 {
+  background-image: url("../img/menu/beer3.jpg");
+}
+
+#drinks-wrapper .photo8 {
+  background-image: url("../img/menu/beer4.jpeg");
 }

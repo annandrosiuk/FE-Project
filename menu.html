@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Restaurant</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/icons/home-boxed-logo.png" />
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+</head>
+
+<body>
+    <header>
+        <!-- Header Desktop -->
+        <div class="wrap-header" id="wrap_header">
+            <!-- Logo -->
+            <div class="logo">
+                <a href="index.html"><img alt="logo-deli" src="img/icons/logo.png"></a>
+            </div>
+            <!-- Menu -->
+            <nav class="menu">
+                <ul class="main_menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="#">Reservation</a></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Features &#x2935</a>
+                        <ul class="sub_menu">
+                            <li><a href="shop-page.html">Shop Page</a></li>
+                            <li><a href="#">Shopping Cart</a></li>
+                            <li><a href="#">Check Out</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <!-- Icomoons - Socials -->
+            <ul class="icon-header">
+                <li><a href="#"><span class="icon-facebook"></span></a></li>
+                <li><a href="#"><span class="icon-twitter"></span></a></li>
+                <li><a href="#"><span class="icon-tripadvisor"></span></a></li>
+                <li><a href="#"><span class="icon-instagram"></span></a></li>
+            </ul>
+        </div>
+
+        <!-- Header Mobile -->
+        <div id="wrap_header_mobile">
+            <!-- Logo moblie -->
+            <div class="logo-mobile">
+                <a href="index.html"><img alt="logo-deli" src="img/icons/logo-mobile.png"></a>
+            </div>
+
+            <!-- Burger box -->
+            <div class="burger-box">
+                <input class='burger-btn' type="checkbox" />
+
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <!-- Menu Mobile -->
+        <div class="wrap-side-menu" id='wrap_side_menu'>
+            <nav class="side-menu" id="side-menu">
+                <ul class="main-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="#">Reservation</a>
+                    </li>
+                    <li><a href="#">About us</a></li>
+                    <li>
+                        <a href="#">Features</a>
+                        <i class="icon-keyboard_arrow_down" id="arrow-main-menu" aria-hidden="true"></i>
+                        <div id="wrap-sub-menu" class="wrap-sub-menu">
+                            <ul class="sub-menu" id="sub-menu">
+                                <li><a href="shop-page.html">Shop Page</a></li>
+                                <li><a href="#">Shopping Cart</a></li>
+                                <li><a href="#">Check Out</a></li>
+                            </ul>
+                        </div>
+
+                    </li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Our Menu -->
+    <section class="menu-section">
+        <!-- title our menu -->
+        <div class="wrap-title-our-menu">
+            <h6>try &amp; discover</h6>
+            <h2>Our Menu</h2>
+        </div>
+
+        <!-- food menu -->
+        <div class="wrap-filter-menu">
+            <ul class="nav-tabs" role="tablist">
+                <li>
+                    <a class="nav-link active" id="lunch-tab" role="tab" data-art="lunch">Lunch</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="dinner-tab" role="tab">Dinner</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="dessert-tab" role="tab">Dessert</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="drinks-tab" role="tab">Drinks</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- list food -->
+        <div class="tab-content" id="myTabContent">
+
+            <!-- Lunch -->
+            <div class="content-wrapper" id="lunch-wrapper">
+                <!-- Menu item -->
+                <div class="item-food">
+                    <div class="item-food__photo photo1">
+                        <a href="#"></a>
+                    </div>
+
+                    <div class="item-food__description">
+                        <div class="food-info">
+                            <h5>Charred octopus</h4>
+                                <div class="info-line"></div>
+                                <span>$5.00</span>
+                        </div>
+
+                        <p class="food-description">
+                            Proinin velit odio mollis ac tortor eget ullamcorper
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Menu item -->
+                <div class="item-food">
+                    <div class="item-food__photo photo2">
+                        <a href="#"></a>
+                    </div>
+
+                    <div class="item-food__description">
+                        <div class="food-info">
+                            <h5>Baulletti</h4>
+                                <div class="info-line"></div>
+                                <span>$5.00</span>
+                        </div>
+
+                        <p class="food-description">
+                            Proinin velit odio mollis ac tortor eget ullamcorper
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Menu item -->
+                <div class="item-food">
+                    <div class="item-food__photo photo3">
+                        <a href="#"></a>
+                    </div>
+
+                    <div class="item-food__description">
+                        <div class="food-info">
+                            <h5>Pine nut sbrisalona</h4>
+                                <div class="info-line"></div>
+                                <span>$20.00</span>
+                        </div>
+
+                        <p class="food-description">
+                            Proin lacinia nisl ut ultricies posuere nulla ut
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Menu item -->
+                <div class="item-food">
+                    <div class="item-food__photo photo4">
+                        <a href="#"></a>
+                    </div>
+
+                    <div class="item-food__description">
+                        <div class="food-info">
+                            <h5>Potato gnocchi</h4>
+                                <div class="info-line"></div>
+                                <span>$10.00</span>
+                        </div>
+
+                        <p class="food-description">
+                            Proin lacinia nisl ut ultricies posuere nulla ut
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Menu item -->
+                <div class="item-food">
+                    <div class="item-food__photo photo5">
+                        <a href="#"></a>
+                    </div>
+
+                    <div class="item-food__description">
+                        <div class="food-info">
+                            <h5>Lobster caponata</h4>
+                                <div class="info-line"></div>
+                                <span>$10.00</span>
+                        </div>
+
+                        <p class="food-description">
+                            Suspendisse sodales congue maximus
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Menu item -->
+                <div class="item-food">
+                    <div class="item-food__photo photo6">
+                        <a href="#"></a>
+                    </div>
+
+                    <div class="item-food__description">
+                        <div class="food-info">
+                            <h5>Pork ribollita</h4>
+                                <div class="info-line"></div>
+                                <span>$15.00</span>
+                        </div>
+
+                        <p class="food-description">
+                            Suspendisse sodales congue maximus
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Menu item -->
+                <div class="item-food">
+                    <div class="item-food__photo photo7">
+                        <a href="#"></a>
+                    </div>
+
+                    <div class="item-food__description">
+                        <div class="food-info">
+                            <h5>Chocolate budino</h4>
+                                <div class="info-line"></div>
+                                <span>$15.00</span>
+                        </div>
+
+                        <p class="food-description">
+                            Interdum et malesuada fames primis in faucibus
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Menu item -->
+                <div class="item-food">
+                    <div class="item-food__photo photo8">
+                        <a href="#"></a>
+                    </div>
+
+                    <div class="item-food__description">
+                        <div class="food-info">
+                            <h5>Livorno style caccuchino</h4>
+                                <div class="info-line"></div>
+                                <span>$30.00</span>
+                        </div>
+
+                        <p class="food-description">
+                            Interdum et malesuada fames primis in faucibus
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Dinner -->
+            <div class="content-wrapper hidden" id="dinner-wrapper">
+                <!-- Menu item -->
+                <div class="item-food">
+                    <div class="item-food__photo photo1">
+                        <a href="#"></a>
+                    </div>
+
+                    <div class="item-food__description">
+                        <div class="food-info">
+                            <h5>Charred octopus</h4>
+                                <div class="info-line"></div>
+                                <span>$5.00</span>
+                        </div>
+
+                        <p class="food-description">
+                            Proinin velit odio mollis ac tortor eget ullamcorper
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Menu item -->
+                <div class="item-food">
+                    <div class="item-food__photo photo2">
+                        <a href="#"></a>
+                    </div>
+
+                    <div class="item-food__description">
+                        <div class="food-info">
+                            <h5>Baulletti</h4>
+                                <div class="info-line"></div>
+                                <span>$5.00</span>
+                        </div>
+
+                        <p class="food-description">
+                            Proinin velit odio mollis ac tortor eget ullamcorper
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Menu item -->
+                <div class="item-food">
+                    <div class="item-food__photo photo3">
+                        <a href="#"></a>
+                    </div>
+
+                    <div class="item-food__description">
+                        <div class="food-info">
+                            <h5>Pine nut sbrisalona</h4>
+                                <div class="info-line"></div>
+                                <span>$20.00</span>
+                        </div>
+
+                        <p class="food-description">
+                            Proin lacinia nisl ut ultricies posuere nulla ut
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Menu item -->
+                <div class="item-food">
+                    <div class="item-food__photo photo4">
+                        <a href="#"></a>
+                    </div>
+
+                    <div class="item-food__description">
+                        <div class="food-info">
+                            <h5>Potato gnocchi</h4>
+                                <div class="info-line"></div>
+                                <span>$10.00</span>
+                        </div>
+
+                        <p class="food-description">
+                            Proin lacinia nisl ut ultricies posuere nulla ut
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Menu item -->
+                <div class="item-food">
+                    <div class="item-food__photo photo5">
+                        <a href="#"></a>
+                    </div>
+
+                    <div class="item-food__description">
+                        <div class="food-info">
+                            <h5>Lobster caponata</h4>
+                                <div class="info-line"></div>
+                                <span>$10.00</span>
+                        </div>
+
+                        <p class="food-description">
+                            Suspendisse sodales congue maximus
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Menu item -->
+                <div class="item-food">
+                    <div class="item-food__photo photo6">
+                        <a href="#"></a>
+                    </div>
+
+                    <div class="item-food__description">
+                        <div class="food-info">
+                            <h5>Pork ribollita</h4>
+                                <div class="info-line"></div>
+                                <span>$15.00</span>
+                        </div>
+
+                        <p class="food-description">
+                            Suspendisse sodales congue maximus
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Menu item -->
+                <div class="item-food">
+                    <div class="item-food__photo photo7">
+                        <a href="#"></a>
+                    </div>
+
+                    <div class="item-food__description">
+                        <div class="food-info">
+                            <h5>Chocolate budino</h4>
+                                <div class="info-line"></div>
+                                <span>$15.00</span>
+                        </div>
+
+                        <p class="food-description">
+                            Interdum et malesuada fames primis in faucibus
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Menu item -->
+                <div class="item-food">
+                    <div class="item-food__photo photo8">
+                        <a href="#"></a>
+                    </div>
+
+                    <div class="item-food__description">
+                        <div class="food-info">
+                            <h5>Livorno style caccuchino</h4>
+                                <div class="info-line"></div>
+                                <span>$30.00</span>
+                        </div>
+
+                        <p class="food-description">
+                            Interdum et malesuada fames primis in faucibus
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Desert -->
+            <div class="content-wrapper hidden" id="dessert-wrapper">
+                <!-- Menu item -->
+                <div class="item-food">
+                    <div class="item-food__photo photo1">
+                        <a href="#"></a>
+                    </div>
+
+                    <div class="item-food__description">
+                        <div class="food-info">
+                            <h5>Charred octopus</h4>
+                                <div class="info-line"></div>
+                                <span>$5.00</span>
+                        </div>
+
+                        <p class="food-description">
+                            Proinin velit odio mollis ac tortor eget ullamcorper
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Menu item -->
+                <div class="item-food">
+                    <div class="item-food__photo photo2">
+                        <a href="#"></a>
+                    </div>
+
+                    <div class="item-food__description">
+                        <div class="food-info">
+                            <h5>Baulletti</h4>
+                                <div class="info-line"></div>
+                                <span>$5.00</span>
+                        </div>
+
+                        <p class="food-description">
+                            Proinin velit odio mollis ac tortor eget ullamcorper
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Menu item -->
+                <div class="item-food">
+                    <div class="item-food__photo photo3">
+                        <a href="#"></a>
+                    </div>
+
+                    <div class="item-food__description">
+                        <div class="food-info">
+                            <h5>Pine nut sbrisalona</h4>
+                                <div class="info-line"></div>
+                                <span>$20.00</span>
+                        </div>
+
+                        <p class="food-description">
+                            Proin lacinia nisl ut ultricies posuere nulla ut
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Menu item -->
+                <div class="item-food">
+                    <div class="item-food__photo photo4">
+                        <a href="#"></a>
+                    </div>
+
+                    <div class="item-food__description">
+                        <div class="food-info">
+                            <h5>Potato gnocchi</h4>
+                                <div class="info-line"></div>
+                                <span>$10.00</span>
+                        </div>
+
+                        <p class="food-description">
+                            Proin lacinia nisl ut ultricies posuere nulla ut
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Menu item -->
+                <div class="item-food">
+                    <div class="item-food__photo photo5">
+                        <a href="#"></a>
+                    </div>
+
+                    <div class="item-food__description">
+                        <div class="food-info">
+                            <h5>Lobster caponata</h4>
+                                <div class="info-line"></div>
+                                <span>$10.00</span>
+                        </div>
+
+                        <p class="food-description">
+                            Suspendisse sodales congue maximus
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Menu item -->
+                <div class="item-food">
+                    <div class="item-food__photo photo6">
+                        <a href="#"></a>
+                    </div>
+
+                    <div class="item-food__description">
+                        <div class="food-info">
+                            <h5>Pork ribollita</h4>
+                                <div class="info-line"></div>
+                                <span>$15.00</span>
+                        </div>
+
+                        <p class="food-description">
+                            Suspendisse sodales congue maximus
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Menu item -->
+                <div class="item-food">
+                    <div class="item-food__photo photo7">
+                        <a href="#"></a>
+                    </div>
+
+                    <div class="item-food__description">
+                        <div class="food-info">
+                            <h5>Chocolate budino</h4>
+                                <div class="info-line"></div>
+                                <span>$15.00</span>
+                        </div>
+
+                        <p class="food-description">
+                            Interdum et malesuada fames primis in faucibus
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Menu item -->
+                <div class="item-food">
+                    <div class="item-food__photo photo8">
+                        <a href="#"></a>
+                    </div>
+
+                    <div class="item-food__description">
+                        <div class="food-info">
+                            <h5>Livorno style caccuchino</h4>
+                                <div class="info-line"></div>
+                                <span>$30.00</span>
+                        </div>
+
+                        <p class="food-description">
+                            Interdum et malesuada fames primis in faucibus
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Drinks -->
+            <div class="content-wrapper hidden" id="drinks-wrapper">
+                <!-- Menu item -->
+                <div class="item-food">
+                    <div class="item-food__photo photo1">
+                        <a href="#"></a>
+                    </div>
+
+                    <div class="item-food__description">
+                        <div class="food-info">
+                            <h5>Charred octopus</h4>
+                                <div class="info-line"></div>
+                                <span>$5.00</span>
+                        </div>
+
+                        <p class="food-description">
+                            Proinin velit odio mollis ac tortor eget ullamcorper
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Menu item -->
+                <div class="item-food">
+                    <div class="item-food__photo photo2">
+                        <a href="#"></a>
+                    </div>
+
+                    <div class="item-food__description">
+                        <div class="food-info">
+                            <h5>Baulletti</h4>
+                                <div class="info-line"></div>
+                                <span>$5.00</span>
+                        </div>
+
+                        <p class="food-description">
+                            Proinin velit odio mollis ac tortor eget ullamcorper
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Menu item -->
+                <div class="item-food">
+                    <div class="item-food__photo photo3">
+                        <a href="#"></a>
+                    </div>
+
+                    <div class="item-food__description">
+                        <div class="food-info">
+                            <h5>Pine nut sbrisalona</h4>
+                                <div class="info-line"></div>
+                                <span>$20.00</span>
+                        </div>
+
+                        <p class="food-description">
+                            Proin lacinia nisl ut ultricies posuere nulla ut
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Menu item -->
+                <div class="item-food">
+                    <div class="item-food__photo photo4">
+                        <a href="#"></a>
+                    </div>
+
+                    <div class="item-food__description">
+                        <div class="food-info">
+                            <h5>Potato gnocchi</h4>
+                                <div class="info-line"></div>
+                                <span>$10.00</span>
+                        </div>
+
+                        <p class="food-description">
+                            Proin lacinia nisl ut ultricies posuere nulla ut
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Menu item -->
+                <div class="item-food">
+                    <div class="item-food__photo photo5">
+                        <a href="#"></a>
+                    </div>
+
+                    <div class="item-food__description">
+                        <div class="food-info">
+                            <h5>Lobster caponata</h4>
+                                <div class="info-line"></div>
+                                <span>$10.00</span>
+                        </div>
+
+                        <p class="food-description">
+                            Suspendisse sodales congue maximus
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Menu item -->
+                <div class="item-food">
+                    <div class="item-food__photo photo6">
+                        <a href="#"></a>
+                    </div>
+
+                    <div class="item-food__description">
+                        <div class="food-info">
+                            <h5>Pork ribollita</h4>
+                                <div class="info-line"></div>
+                                <span>$15.00</span>
+                        </div>
+
+                        <p class="food-description">
+                            Suspendisse sodales congue maximus
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Menu item -->
+                <div class="item-food">
+                    <div class="item-food__photo photo7">
+                        <a href="#"></a>
+                    </div>
+
+                    <div class="item-food__description">
+                        <div class="food-info">
+                            <h5>Chocolate budino</h4>
+                                <div class="info-line"></div>
+                                <span>$15.00</span>
+                        </div>
+
+                        <p class="food-description">
+                            Interdum et malesuada fames primis in faucibus
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Menu item -->
+                <div class="item-food">
+                    <div class="item-food__photo photo8">
+                        <a href="#"></a>
+                    </div>
+
+                    <div class="item-food__description">
+                        <div class="food-info">
+                            <h5>Livorno style caccuchino</h4>
+                                <div class="info-line"></div>
+                                <span>$30.00</span>
+                        </div>
+
+                        <p class="food-description">
+                            Interdum et malesuada fames primis in faucibus
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+    </section>
+
+    <script src="js/menu.js"></script>
+</body>
+
+</html>
