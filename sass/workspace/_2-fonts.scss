@@ -1,12 +1,13 @@
-@font-face{
+@font-face {
   font-family: "icomoons";
   src: url("../fonts/icomoon/fonts/icomoon.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
-[class^='icon-'], [class*=' icon-'] {
-  font-family: 'icomoons' !important;
+[class^="icon-"],
+[class*=" icon-"] {
+  font-family: "icomoons" !important;
   speak-as: none;
   font-weight: normal;
   font-style: normal;
@@ -16,6 +17,45 @@
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+.icon-tripadvisor:before {
+  content: "\e900";
+}
+
+.icon-twitter:before {
+  content: "\ea96";
+}
+
+.icon-facebook:before {
+  content: "\ea90";
+}
+
+.icon-instagram:before {
+  content: "\ea92";
+}
+
+.icon-keyboard_arrow_down:before {
+  content: "\e901";
+}
+
+.icon-circle-right:before {
+  content: "\ea42";
+}
+
+.icon-circle-left:before {
+  content: "\ea44";
+}
+
+.icon-calendar:before {
+  content: "\e953";
+}
+
+.icon-clock:before {
+  content: "\e94e";
+}
+
+.icon-keyboard_arrow_up:before {
+  content: "\e901";
 }
 
 @font-face {
@@ -69,4 +109,3 @@
   font-weight: normal;
   font-style: normal;
 }
-

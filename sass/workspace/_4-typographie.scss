@@ -49,7 +49,7 @@ h6 {
 }
 
 p {
-  font-size: $f14;
+  font-size: $f16;
   color: $light-grey;
   font-family: $ost;
   line-height: 1.8;
@@ -82,4 +82,8 @@ a {
 .italic {
   font-style: italic;
   letter-spacing: -0.1rem;
+}
+
+.underline{
+  text-decoration: underline;
 }

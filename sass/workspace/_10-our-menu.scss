@@ -6,9 +6,9 @@
 }
 
 // ---------- Title of our menu ---------- //
-.wrap-title-our-menu {
+.wrap-title {
   text-align: center;
-  padding: 10rem 0 2rem 0;
+  padding: 10rem 0 5rem 0;
 
   & > h2 {
     color: $light-black;
@@ -64,6 +64,7 @@
 // ---------- Wrap for menu---------- //
 .tab-content {
   width: 100%;
+  margin-bottom: 5rem;
 }
 
 .content-wrapper {
@@ -249,7 +250,8 @@
 
 @media (max-width: 768px) {
   .item-food {
-    width: 80%;}
+    width: 80%;
+  }
 }
 
 @media (max-width: 420px) {

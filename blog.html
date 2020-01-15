@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Shop page</title>
+  <title>Blog</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="img/icons/home-boxed-logo.png" />
@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <header>
+  <header id="top">
     <!-- Header Desktop -->
     <div class="wrap-header" id="wrap_header">
       <!-- Logo -->
@@ -69,7 +69,7 @@
       <nav class="side-menu" id="side-menu">
         <ul class="main-menu">
           <li><a href="index.html">Home</a></li>
-          <li><a href="menu.html">Menu</a></li>
+          <li><a href="menu.html">Menufv</a></li>
           <li><a href="reservation.html">Reservation</a>
           </li>
           <li><a href="about-us.html">About us</a></li>
@@ -92,38 +92,79 @@
     </div>
   </header>
 
-  <!-- Our Menu -->
-  <section class="menu-section">
+  <!-- Our Events -->
+  <section class="events-section">
     <!-- title our menu -->
-    <div class="wrap-title-our-menu">
-      <h6>try &amp; discover</h6>
-      <h2>Our Menus</h2>
+    <div class="wrap-title">
+      <h6>Discover our</h6>
+      <h2>Upcoming Events</h2>
     </div>
 
-    <!-- food menu -->
-    <div class="wrap-filter-menu">
-      <ul class="nav-tabs" role="tablist">
-        <li>
-          <a class="nav-link active" href="#" role="tab">Lunch</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" role="tab">Dinner</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" role="tab">Dessert</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" role="tab">Drinks</a>
-        </li>
-      </ul>
+    <!-- Events wrapper -->
+    <div class="wrap-events">
+      <!-- First event -->
+      <div class="event-wrapper">
+        <div class="event-wrapper__photo event-wrapper__photo1"></div>
+        <h4>Deli Summer Auscoutics</h4>
+        <p>
+          Proin lacinia nisl ut ultricies posuere nulla ut imperdiet nunc. Quisque id tellus vitae mauris feugiat
+          comodone, donec pretium odio nec sagittis euismod.
+        </p>
+        <div class="event-wrapper__date">
+          <span>
+            <i class="icon-calendar"></i>
+            21 January, 2020
+          </span>
+          <span>
+            <i class="icon-clock"></i>
+            10:00AM - 22:00PM
+          </span>
+        </div>
+      </div>
+
+      <!-- Second event -->
+      <div class="event-wrapper">
+        <div class="event-wrapper__photo event-wrapper__photo2"></div>
+        <h4>The Live Jazz Music Night</h4>
+        <p>
+          Proin lacinia nisl ut ultricies posuere nulla ut imperdiet nunc. Quisque id tellus vitae mauris feugiat
+          comodone, donec pretium odio nec sagittis euismod.
+        </p>
+        <div class="event-wrapper__date">
+          <span>
+            <i class="icon-calendar"></i>
+            22 January, 2020
+          </span>
+          <span>
+            <i class="icon-clock"></i>
+            19:00PM - 23:00PM
+          </span>
+        </div>
+      </div>
+
+      <!-- Third event -->
+      <div class="event-wrapper">
+        <div class="event-wrapper__photo event-wrapper__photo3"></div>
+        <h4>Mother’s Day Celebrating at Deli</h4>
+        <p>
+          Proin lacinia nisl ut ultricies posuere nulla ut imperdiet nunc. Quisque id tellus vitae mauris feugiat
+          comodone, donec pretium odio nec sagittis euismod.
+        </p>
+        <div class="event-wrapper__date">
+          <span>
+            <i class="icon-calendar"></i>
+            23 January, 2020
+          </span>
+          <span>
+            <i class="icon-clock"></i>
+            10:00AM - 22:00PM
+          </span>
+        </div>
+      </div>
     </div>
 
-    <!-- cart section -->
-    <div class="wrap-cart" id="cart"></div>
-
-    <!-- goods section -->
-    <div class="wrap-goods" id="goods"></div>
-
+    <!-- Button -->
+    <a href="blog.html" class="href-to italic">Want to see more events?</a>
   </section>
 
   <!-- Footer -->
@@ -192,7 +233,7 @@
       </div>
     </div>
   </footer>
-  <script src="js/goods.js"></script>
+
 </body>
 
 </html>
