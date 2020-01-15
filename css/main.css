@@ -856,6 +856,7 @@ body {
         -ms-flex-direction: column;
             flex-direction: column; }
     .item-food__description .food-info {
+      width: 100%;
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
@@ -869,8 +870,11 @@ body {
           -ms-flex-align: end;
               align-items: flex-end; }
       .item-food__description .food-info .info-line {
-        width: 18rem;
         height: 1px;
+        -webkit-box-flex: 2;
+        -webkit-flex-grow: 2;
+            -ms-flex-positive: 2;
+                flex-grow: 2;
         margin: 0 1rem;
         border-bottom: 1px solid #808080; }
       .item-food__description .food-info span {
@@ -972,6 +976,30 @@ body {
 
 #drinks-wrapper .photo8 {
   background-image: url("../img/menu/beer4.jpeg"); }
+
+@media (max-width: 768px) {
+  .item-food {
+    width: 80%; } }
+
+@media (max-width: 420px) {
+  .item-food {
+    width: 90%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    border-bottom: 1px solid #333333; }
+    .item-food__photo {
+      margin-bottom: 2rem; }
+    .item-food__description {
+      width: 80%;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      padding-bottom: 1rem; } }
 
 .menu-section {
   background-color: #ffffff;
@@ -1339,6 +1367,7 @@ table {
         -ms-flex-direction: column;
             flex-direction: column; }
     .item-food__description .food-info {
+      width: 100%;
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
@@ -1352,8 +1381,11 @@ table {
           -ms-flex-align: end;
               align-items: flex-end; }
       .item-food__description .food-info .info-line {
-        width: 18rem;
         height: 1px;
+        -webkit-box-flex: 2;
+        -webkit-flex-grow: 2;
+            -ms-flex-positive: 2;
+                flex-grow: 2;
         margin: 0 1rem;
         border-bottom: 1px solid #808080; }
       .item-food__description .food-info span {
@@ -1455,6 +1487,30 @@ table {
 
 #drinks-wrapper .photo8 {
   background-image: url("../img/menu/beer4.jpeg"); }
+
+@media (max-width: 768px) {
+  .item-food {
+    width: 80%; } }
+
+@media (max-width: 420px) {
+  .item-food {
+    width: 90%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    border-bottom: 1px solid #333333; }
+    .item-food__photo {
+      margin-bottom: 2rem; }
+    .item-food__description {
+      width: 80%;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      padding-bottom: 1rem; } }
 
 .menu-section {
   background-color: #ffffff;

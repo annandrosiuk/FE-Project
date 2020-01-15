@@ -94,16 +94,16 @@
 
   &__description {
     width: 80%;
-    //border: 1px solid black;
     @include dis-flex(flex-start, flex-start);
     flex-direction: column;
 
     .food-info {
+      width: 100%;
       @include dis-flex(space-between, flex-end);
 
       .info-line {
-        width: 18rem;
         height: 1px;
+        flex-grow: 2;
         margin: 0 1rem;
         border-bottom: 1px solid $light-grey;
       }
@@ -245,4 +245,27 @@
 
 #drinks-wrapper .photo8 {
   background-image: url("../img/menu/beer4.jpeg");
+}
+
+@media (max-width: 768px) {
+  .item-food {
+    width: 80%;}
+}
+
+@media (max-width: 420px) {
+  .item-food {
+    width: 90%;
+    flex-direction: column;
+    border-bottom: 1px solid $dark-grey;
+
+    &__photo {
+      margin-bottom: 2rem;
+    }
+
+    &__description {
+      width: 80%;
+      flex-direction: column;
+      padding-bottom: 1rem;
+    }
+  }
 }
