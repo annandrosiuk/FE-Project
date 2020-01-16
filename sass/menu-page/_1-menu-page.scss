@@ -1,0 +1,33 @@
+// ---------- Our Menu on Menu Page ---------- //
+.pages-banner-section {
+  width: 100%;
+  height: 50rem;
+}
+
+.pages-banner-wrapper {
+  width: 100%;
+  height: 50rem;
+  background-size: cover;
+  @include flex-center;
+
+  .wrap-title {
+    h2 {
+      color: $white;
+    }
+
+    h6 {
+      color: $light;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.menu-banner-wrapper {
+  background-image: url("../img/main4.jpg");
+}
+
+.separator {
+  width: 100%;
+  height: 20rem;
+  background-color: $blue;
+}
