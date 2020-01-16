@@ -1382,8 +1382,10 @@ body {
   .event-wrapper__photo {
     width: 100%;
     height: 20rem;
+    background-repeat: no-repeat;
     -webkit-background-size: cover;
-            background-size: cover; }
+            background-size: cover;
+    background-position: center; }
   .event-wrapper__photo1 {
     background-image: url("../img/banner4.jpg"); }
   .event-wrapper__photo2 {
@@ -1699,6 +1701,29 @@ body {
 
 .about-banner-wrapper {
   background-image: url("../img/main2.jpg"); }
+
+.staff-wrapper__photo1 {
+  background-image: url("../img/people/slider5.jpg"); }
+
+.staff-wrapper__photo2 {
+  background-image: url("../img/people/slider8.jpg"); }
+
+.staff-wrapper__photo3 {
+  background-image: url("../img/people/slider1.jpg"); }
+
+.contact-text-img {
+  margin-top: 2rem;
+  width: 10rem;
+  height: 10rem;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+  background-image: url("../img/icons/sign.png"); }
+
+.contact-section .contact-section-photo {
+  height: 40rem;
+  background-color: #5f9ea0;
+  background-image: url("../img/banner1.jpg"); }
 
 .shop-banner-wrapper {
   background-image: url("../img/main.jpg"); }
@@ -2506,8 +2531,10 @@ table {
   .event-wrapper__photo {
     width: 100%;
     height: 20rem;
+    background-repeat: no-repeat;
     -webkit-background-size: cover;
-            background-size: cover; }
+            background-size: cover;
+    background-position: center; }
   .event-wrapper__photo1 {
     background-image: url("../img/banner4.jpg"); }
   .event-wrapper__photo2 {
