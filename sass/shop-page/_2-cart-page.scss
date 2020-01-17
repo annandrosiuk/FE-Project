@@ -1,0 +1,48 @@
+.cart-section {
+  width: 100;
+  @include flex-center;
+  flex-direction: column;
+}
+
+#cart {
+  width: 80%;
+}
+
+.cart-wrapper {
+  @include dis-flex(space-around, center);
+  border: 1px solid $light-grey;
+  padding: 1rem 2rem;
+  margin: 2rem 0;
+}
+
+.image-cart {
+  width: 10rem;
+  height: 10rem;
+  background-size: cover;
+}
+
+.count-wrapper{
+  @include flex-center;
+
+  p{
+    padding: 0 1rem;
+  }
+}
+
+.total-sum-wrapper {
+  width: 80%;
+  @include dis-flex(space-between, center);
+
+  a{
+    color: $dark-grey;
+    font-size: $f12;
+    text-decoration: underline;
+  }
+  
+
+  p {
+    color: $light-black;
+    font-size: $f24;
+    font-family: $ostb;
+  }
+}
