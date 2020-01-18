@@ -95,45 +95,62 @@
   <!-- Shop Banner -->
   <section class="pages-banner-section">
     <div class="pages-banner-wrapper shop-banner-wrapper">
-        <!-- title our menu -->
-        <div class="wrap-title">
-            <h2>Our Menu</h2>
-            <h6>HOME / OUR MENU</h6>
-        </div>
+      <!-- title our menu -->
+      <div class="wrap-title">
+        <h2>Our Menu</h2>
+        <h6>HOME / OUR MENU</h6>
+      </div>
     </div>
-</section>
+  </section>
 
   <!-- Our Menu -->
-  <section class="menu-section">
-    <!-- title our menu -->
-    <div class="wrap-title-our-menu">
-      <h6>try &amp; discover</h6>
-      <h2>Our Menus</h2>
+  <section class="shop-section">
+    <div class="container">
+
+      <!-- all goods section -->
+      <div class="wrap-all-goods">
+        <div class="wrap-sort-goods" id="sort-goods">
+          <p class="goods-count" id="goods-count">Showing 1–12 of 28 results</p>
+          <select id="select">
+            <option value="default">Sort by default</option>
+            <option value="price-low" id="price-low">Price Low to High</option>
+            <option value="price-high" id="price-high">Price High to Low</option>
+            <option value="sort-by-name">Sort by name</option>
+          </select>
+        </div>
+
+        <div id="test"></div>
+
+        <!-- goods section -->
+        <div class="wrap-goods" id="goods"></div>
+      </div>
+
+      <!-- filter section -->
+      <div class="filter-section">
+        <div class="search-bar">
+          <input type="text" name="search" value="" autocomplete="off" id="myinput" onkeyup="searchFunction()"
+            placeholder="Search">
+        </div>
+
+        <h4>Categories</h4>
+        <ul>
+          <li id="beer">beer</li>
+          <li id="burger">burger</li>
+          <li id="steak">steak</li>
+          <li id="drink">drink</li>
+          <li id="wok">wok</li>
+          <li id="desert">desert</li>
+          <li id="soup">soup</li>
+          <li id="snack">snack</li>
+          <li id="salad">salad</li>
+          <li>------</li>
+          <li id="all">all</li>
+        </ul>
+      </div>
+
     </div>
 
-    <!-- food menu -->
-    <div class="wrap-filter-menu">
-      <ul class="nav-tabs" role="tablist">
-        <li>
-          <a class="nav-link active" href="#" role="tab">Lunch</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" role="tab">Dinner</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" role="tab">Dessert</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" role="tab">Drinks</a>
-        </li>
-      </ul>
-    </div>
 
-    <!-- cart section -->
-    <div class="wrap-cart" id="cart"></div>
-
-    <!-- goods section -->
-    <div class="wrap-goods" id="goods"></div>
 
   </section>
 

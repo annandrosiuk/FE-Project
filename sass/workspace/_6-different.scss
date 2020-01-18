@@ -4,7 +4,9 @@ body{
 }
 
 .container {
-  max-width: 120rem;
+  width: 90%;
+  @include dis-flex(space-between, flex-start);
+  flex-direction: row;
 }
 
 .hidden{
