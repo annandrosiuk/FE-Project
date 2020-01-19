@@ -1643,7 +1643,7 @@ body {
   .filter-section input {
     width: 100%;
     height: 4rem;
-    padding: .5rem 0 .5rem 1.5rem;
+    padding: 0.5rem 0 0.5rem 1.5rem;
     outline: 0;
     border: none;
     font-size: 1.4rem; }
@@ -1768,6 +1768,86 @@ body {
       -ms-box-shadow: 4px 6px 12px -3px #505050; }
     .wrap-goods .single-good:hover .add-to-cart {
       bottom: 0px; }
+
+.pagination-btns {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .pagination-btns .single-btn {
+    width: 5rem;
+    height: 5rem;
+    border: 1px solid #808080;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-right: 2rem;
+    cursor: pointer; }
+    .pagination-btns .single-btn a {
+      padding: 0;
+      margin: 0;
+      color: #808080;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      line-height: 5rem; }
+    .pagination-btns .single-btn:hover {
+      background-color: #e74c3c;
+      border: 1px solid #e74c3c;
+      -webkit-transition: all 0.4s;
+      -o-transition: all 0.4s;
+      transition: all 0.4s; }
+      .pagination-btns .single-btn:hover a {
+        color: #e74c3c;
+        display: block; }
+  .pagination-btns .first,
+  .pagination-btns .last {
+    background-color: #e74c3c;
+    border: 1px solid #e74c3c; }
+    .pagination-btns .first a,
+    .pagination-btns .last a {
+      color: #e74c3c; }
+  .pagination-btns .first::before,
+  .pagination-btns .last::before,
+  .pagination-btns .next::before,
+  .pagination-btns .prev::before {
+    position: absolute;
+    z-index: 20;
+    color: #ffffff;
+    font-size: 20px;
+    content: ""; }
+  .pagination-btns .first::before {
+    content: "<<"; }
+  .pagination-btns .last::before {
+    content: ">>"; }
+  .pagination-btns .next::before {
+    content: ">"; }
+  .pagination-btns .prev::before {
+    content: "<"; }
+  .pagination-btns .prev,
+  .pagination-btns .next {
+    background-color: #5f9ea0;
+    border: 1px solid #5f9ea0; }
+    .pagination-btns .prev a,
+    .pagination-btns .next a {
+      color: #5f9ea0; }
 
 @media (max-width: 780px) {
   .goods {
