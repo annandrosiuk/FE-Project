@@ -9,19 +9,18 @@ fetch('goods.json')
         loadGoods();
         checkCart()
 
-
         function loadGoods() {
             //filter items (9 per page)
-            const filterItems = (json, pageId, itemsPerPage = 9) =>
+            const filterItems = (json, pageId, item, itemsPerPage = 9) =>
                 json.filter((item, index) => {
                     const page = Math.floor(index / itemsPerPage);
                     return page === pageId;
                 });
 
             //show them
-            function showAll(index) {
+            function showAll(data, index, item) {
 
-                let arr = filterItems(json, index);
+                let arr = filterItems(data, index, item);
                 console.log(arr);
 
                 let out = '';
@@ -38,56 +37,67 @@ fetch('goods.json')
                 $('button.add-to-cart').on('click', addToCard);
             }
 
-            showAll(0);
+            showAll(json, 0);
 
+            //Filtration onclick
             $('#beer').on('click', filterGoods);
             $('#beer').on('click', function () {
                 $("#select").val('default');
+                firstPagination();
             });
 
             $('#burger').on('click', filterGoods);
             $('#burger').on('click', function () {
                 $("#select").val('default');
+                firstPagination();
             });
 
             $('#steak').on('click', filterGoods);
             $('#steak').on('click', function () {
                 $("#select").val('default');
+                firstPagination();
             });
 
             $('#drink').on('click', filterGoods);
             $('#drink').on('click', function () {
                 $("#select").val('default');
+                firstPagination();
             });
 
             $('#wok').on('click', filterGoods);
             $('#wok').on('click', function () {
                 $("#select").val('default');
+                firstPagination();
             });
 
             $('#desert').on('click', filterGoods);
             $('#desert').on('click', function () {
                 $("#select").val('default');
+                firstPagination();
             });
 
             $('#soup').on('click', filterGoods);
             $('#soup').on('click', function () {
                 $("#select").val('default');
+                firstPagination();
             });
 
             $('#snack').on('click', filterGoods);
             $('#snack').on('click', function () {
                 $("#select").val('default');
+                firstPagination();
             });
 
             $('#salad').on('click', filterGoods);
             $('#salad').on('click', function () {
                 $("#select").val('default');
+                firstPagination();
             });
 
             $('#all').on('click', function () {
-                showAll(0);
+                showAll(json, 0);
                 $("#select").val('default');
+                firstPagination();
             });
 
             // first prev i-2 i-1 i i+1 i+2 next last
@@ -164,23 +174,26 @@ fetch('goods.json')
                 }
                 return result;
             }
+            function firstPagination() {
 
-            let brr = pagesList(json, 0);
-            let out = '';
-            for (let key in brr) {
-                out += '<div  data-text="' + brr[key]['text'] + '" data-href="' + brr[key]['link'] + '" class="single-btn ' + brr[key]['class'] + '">';
-                out += '<a href="' + brr[key]['link'] + '" data-text="' + brr[key]['text'] + '">' + brr[key]['text'] + '</a>';
-                out += '</div>';
+
+                let brr = pagesList(json, 0);
+                let out = '';
+                for (let key in brr) {
+                    out += '<div  data-text="' + brr[key]['text'] + '" data-href="' + brr[key]['link'] + '" class="single-btn ' + brr[key]['class'] + '">';
+                    out += '<a href="' + brr[key]['link'] + '" data-text="' + brr[key]['text'] + '">' + brr[key]['text'] + '</a>';
+                    out += '</div>';
+                }
+
+                $('#pagination').html(out);
+                $('.single-btn').on('click', changePagination);
             }
-
-            $('#pagination').html(out);
-            $('.single-btn').on('click', changePagination);
-
+            firstPagination();
             function changePagination(e) {
                 //change page
                 e.preventDefault();
                 let articul = +$(this).attr('data-text') - 1;
-                showAll(articul);
+                showAll(json, articul);
                 console.log(pagesList(json, articul));
 
                 let brr = pagesList(json, articul);
@@ -193,6 +206,105 @@ fetch('goods.json')
 
                 $('#pagination').html(out);
                 $('.single-btn').on('click', changePagination);
+            }
+
+            let selectBox = document.getElementById("select");
+            selectBox.addEventListener('change', changeFunc);
+
+            function changeFunc() {
+                //function for select options
+                let selectedValue = selectBox.options[selectBox.selectedIndex].value;
+
+                if (selectedValue == 'price-low') {
+                    mySort('cost');
+                    firstPagination();
+                }
+
+                if (selectedValue == 'price-high') {
+                    mySortToHigh('cost');
+                    firstPagination();
+                }
+
+                if (selectedValue == 'default') {
+                    mySort('id');
+                    firstPagination();
+                }
+
+                if (selectedValue == 'sort-by-name') {
+                    mySort('name');
+                    firstPagination();
+                }
+            }
+
+            function sortByProperty(property) {
+                return function (a, b) {
+                    if (a[property] > b[property])
+                        return 1;
+                    else if (a[property] < b[property])
+                        return -1;
+
+                    return 0;
+                }
+            }
+
+            function sortByPropertyHigh(property) {
+                return function (a, b) {
+                    if (a[property] < b[property])
+                        return 1;
+                    else if (a[property] > b[property])
+                        return -1;
+
+                    return 0;
+                }
+            }
+
+            //sort elements
+            function mySort(el) {
+                let goods = json;
+                let sortEl = goods.sort(sortByProperty(el));
+                showAll(sortEl, 0);
+            }
+
+            function mySortToHigh(el) {
+                let goods = json;
+                let sortEl = goods.sort(sortByPropertyHigh(el));
+                showAll(sortEl, 0);
+            }
+
+            function filterGoods() {
+                //filter by categories
+                let goods = json;
+                let articul = $(this).attr('id');
+                // console.log(goods);
+
+                let divs = '';
+                for (let key in goods) {
+
+                    if ((goods[key]["category"] == articul)) {
+                        divs += '<div class="single-good" data-price="' + goods[key]['cost'] + '" data-name="' + goods[key]['name'] + '" data-art="' + goods[key]['id'] + '">';
+                        divs += '<img class="image" src=" ' + goods[key]['image'] + ' ">';
+                        divs += '<h4>' + goods[key]['name'] + '</h4>';
+                        divs += '<p>' + goods[key]['cost'] + ' &#8372;</p>';
+                        divs += '<button class="add-to-cart" data-art="' + goods[key]['id'] + '">Buy</button>';
+                        divs += '</div>';
+                    }
+
+                }
+                $('#goods').html(divs);
+
+                // let some;
+                // let arr = [];
+                // for (let key in json) {
+                //     if ((json[key]["category"] == articul)) {
+                //         some = json[key];
+                //         //console.log(some);
+                //         // if (json[key]["category"] != null) {
+                //         arr[key] = some;
+                //         // } 
+
+                //     }
+                // }
+                // console.log(arr);
             }
         }
 
@@ -215,99 +327,42 @@ fetch('goods.json')
             }
         }
 
-        function filterGoods() {
-            //filter dy categories
-            let articul = $(this).attr('id');
+        //search
+        // function searchFunction() {
+        //     let input, filter, goodsWrapper, singleGood, h4, i;
+        //     input = document.getElementById('myinput');
+        //     filter = input.value.toUpperCase();
+        //     goodsWrapper = json;
+        //     let div = document.getElementsByClassName('single-good');
 
-            fetch('goods.json')
-                .then(response => response.json())
-                .then(function (data) {
+        //     singleGood = goodsWrapper;
+        //     // console.log(singleGood[key]);
+        //     for (i = 0; i < singleGood.length; i++) {
+        //         h4 = singleGood[i]['name'][0];
 
-                    let out = '';
-                    for (let key in data) {
-                        if (data[key]['category'] == articul) {
-                            out += '<div class="single-good" data-price="' + data[key]['cost'] + '" data-name="' + data[key]['name'] + '" data-art="' + data[key]['id'] + '">';
-                            out += '<img class="image" src=" ' + data[key]['image'] + ' ">';
-                            out += '<h4>' + data[key]['name'] + '</h4>';
-                            out += '<p>' + data[key]['cost'] + ' &#8372;</p>';
-                            out += '<button class="add-to-cart" data-art="' + data[key]['id'] + '">Buy</button>';
-                            out += '</div>';
-                        }
+        //         if (h4.toUpperCase().indexOf(filter) > -1) {
+        //             console.log('correct');
+        //             //console.log(singleGood[i]);
+        //             // div.style.display = "";
+        //             //singleGood[i].style.display = "";
+        //         }
 
-                    }
-                    $('#goods').html(out);
-                    $('button.add-to-cart').on('click', addToCard);
-                });
+        //         else {
+        //             //let div = document.getElementsByClassName('single-good');
+        //             // div.style.display = "none";
+        //             console.log('no correct');
+        //             // console.log(singleGood[i]);
+        //             // singleGood[i].style.display = 'none';
+        //         }
+        //     }
+        //     //singleGood = goodsWrapper.getElementsByClassName('single-good');
+        // }
 
-        }
-
-        let selectBox = document.getElementById("select");
-        selectBox.addEventListener('change', changeFunc);
-
-        function changeFunc() {
-            //function for select options
-            let selectedValue = selectBox.options[selectBox.selectedIndex].value;
-
-            if (selectedValue == 'price-low') {
-                mySort('data-price');
-            }
-
-            if (selectedValue == 'price-high') {
-                mySortHigh('data-price');
-            }
-
-            if (selectedValue == 'default') {
-                mySort('data-art');
-            }
-
-            if (selectedValue == 'sort-by-name') {
-                mySortByName('data-name');
-            }
-        }
-
-        //sort elements
-        function mySort(sortType) {
-            let goods = document.querySelector('#goods');
-            for (let i = 0; i < goods.children.length; i++) {
-                for (let j = i; j < goods.children.length; j++) {
-                    if (+goods.children[i].getAttribute(sortType) > +goods.children[j].getAttribute(sortType)) {
-                        replacedNode = goods.replaceChild(goods.children[j], goods.children[i]);
-                        insertAfter(replacedNode, goods.children[i]);
-                    }
-                }
-            }
-        }
-
-        function mySortHigh(sortType) {
-            let goods = document.querySelector('#goods');
-            for (let i = 0; i < goods.children.length; i++) {
-                for (let j = i; j < goods.children.length; j++) {
-                    if (+goods.children[i].getAttribute(sortType) < +goods.children[j].getAttribute(sortType)) {
-                        replacedNode = goods.replaceChild(goods.children[j], goods.children[i]);
-                        insertAfter(replacedNode, goods.children[i]);
-                    }
-                }
-            }
-        }
-
-        function mySortByName(sortType) {
-            let goods = document.querySelector('#goods');
-            for (let i = 0; i < goods.children.length; i++) {
-                for (let j = i; j < goods.children.length; j++) {
-                    if (goods.children[i].getAttribute(sortType) > goods.children[j].getAttribute(sortType)) {
-                        replacedNode = goods.replaceChild(goods.children[j], goods.children[i]);
-                        insertAfter(replacedNode, goods.children[i]);
-                    }
-                }
-            }
-        }
-
-        function insertAfter(elem, refElem) {
-            return refElem.parentNode.insertBefore(elem, refElem.nextSibling);
-        }
+        // let input = document.getElementById('myinput');
+        // input.addEventListener("keyup", searchFunction);
     })
 
-//search
+// //search
 function searchFunction() {
     let input, filter, goodsWrapper, singleGood, h4, i;
     input = document.getElementById('myinput');
