@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <header>
+  <header id="top">
     <!-- Header Desktop -->
     <div class="wrap-header" id="wrap_header">
       <!-- Logo -->
@@ -55,8 +55,8 @@
       </div>
 
       <!-- Burger box -->
-      <div class="burger-box">
-        <input class='burger-btn' type="checkbox" />
+      <div id="toggle-nav" class="burger-box">
+        <input class='burger-btn' id='burger-btn' type="checkbox" />
 
         <span></span>
         <span></span>
@@ -65,30 +65,22 @@
     </div>
 
     <!-- Menu Mobile -->
-    <div class="wrap-side-menu" id='wrap_side_menu'>
-      <nav class="side-menu" id="side-menu">
-        <ul class="main-menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="menu.html">Menu</a></li>
-          <li><a href="reservation.html">Reservation</a>
-          </li>
-          <li><a href="about-us.html">About us</a></li>
-          <li>
-            <a href="shop-page.html">Features</a>
-            <i class="icon-keyboard_arrow_down" id="arrow-main-menu" aria-hidden="true"></i>
-            <div id="wrap-sub-menu" class="wrap-sub-menu">
-              <ul class="sub-menu" id="sub-menu">
-                <li><a href="shop-page.html">Shop Page</a></li>
-                <li><a href="shopping-cart.html">Shopping Cart</a></li>
-                <li><a href="#">Check Out</a></li>
-              </ul>
-            </div>
-
-          </li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="contact-us.html">Contact</a></li>
-        </ul>
-      </nav>
+    <div class="mobile-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="reservation.html">Reservation</a></li>
+        <li><a href="about-us.html">About us</a></li>
+        <li class="m-drop-down"><a>Features <i class="icon-keyboard_arrow_down"></i></a>
+          <ul>
+            <li><a href="shop-page.html">Shop Page</a></li>
+            <li><a href="shopping-cart.html">Shopping Cart</a></li>
+            <li><a href="#">Check Out</a></li>
+          </ul>
+        </li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact-us.html">Contact</a></li>
+      </ul>
     </div>
   </header>
 
@@ -181,6 +173,16 @@
       </div>
     </div>
   </footer>
+
+  <!-- Back to top -->
+  <div class="btn-back-to-top" id="myBtn">
+    <span class="symbol-btn-back-to-top">
+      <!-- <a href="#top"> -->
+      <i class="icon-keyboard_arrow_up"></i>
+      <!-- </a> -->
+
+    </span>
+  </div>
   <script src="js/cart.js"></script>
 </body>
 

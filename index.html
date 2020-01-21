@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="css/main.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="js/main.js"></script>
-  <script src="js/slider.js"></script>
 </head>
 
 <body>
@@ -56,8 +55,8 @@
       </div>
 
       <!-- Burger box -->
-      <div class="burger-box">
-        <input class='burger-btn' type="checkbox" />
+      <div id="toggle-nav" class="burger-box">
+        <input class='burger-btn' id='burger-btn' type="checkbox" />
 
         <span></span>
         <span></span>
@@ -66,73 +65,33 @@
     </div>
 
     <!-- Menu Mobile -->
-    <div class="wrap-side-menu" id='wrap_side_menu'>
-      <nav class="side-menu" id="side-menu">
-        <ul class="main-menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="menu.html">Menufv</a></li>
-          <li><a href="reservation.html">Reservation</a>
-          </li>
-          <li><a href="about-us.html">About us</a></li>
-          <li>
-            <a href="shop-page.html">Features</a>
-            <i class="icon-keyboard_arrow_down" id="arrow-main-menu" aria-hidden="true"></i>
-            <div id="wrap-sub-menu" class="wrap-sub-menu">
-              <ul class="sub-menu" id="sub-menu">
-                <li><a href="shop-page.html">Shop Page</a></li>
-                <li><a href="shopping-cart.html">Shopping Cart</a></li>
-                <li><a href="#">Check Out</a></li>
-              </ul>
-            </div>
-
-          </li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="contact-us.html">Contact</a></li>
-        </ul>
-      </nav>
+    <div class="mobile-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="reservation.html">Reservation</a></li>
+        <li><a href="about-us.html">About us</a></li>
+        <li class="m-drop-down"><a>Features <i class="icon-keyboard_arrow_down"></i></a>
+          <ul>
+            <li><a href="shop-page.html">Shop Page</a></li>
+            <li><a href="shopping-cart.html">Shopping Cart</a></li>
+            <li><a href="#">Check Out</a></li>
+          </ul>
+        </li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact-us.html">Contact</a></li>
+      </ul>
     </div>
   </header>
+
   <!-- Slider Section -->
   <section class="slider-section">
-    <!-- Slider -->
-    <div class="slideShow" id='wrapper'>
-      <div class="slideShow__container">
-        <div class="slideShow__slider" id="slider">
-          <div class="slideShow__slide">
+    <div class="slider">
+
+      <div class="slide active">
+        <div class="container">
+          <div class="caption">
             <h3>Deli Restaurant</h3>
-
-            <div id="btn-slide" class="btn-slide">
-              <a href="#" class="btn1">VIEW MENU</a>
-              <a href="#" class="btn2">BOOK A TABLE</a>
-            </div>
-          </div>
-          <div class="slideShow__slide">
-            <h3>Fresh Ingredients</h3>
-
-            <div id="btn-slide" class="btn-slide">
-              <a href="#" class="btn1">VIEW MENU</a>
-              <a href="#" class="btn2">BOOK A TABLE</a>
-            </div>
-          </div>
-          <div class="slideShow__slide">
-            <h3>Fresh. Delicious. Healthy.</h3>
-
-            <div id="btn-slide" class="btn-slide">
-              <a href="#" class="btn1">VIEW MENU</a>
-              <a href="#" class="btn2">BOOK A TABLE</a>
-            </div>
-          </div>
-          <div class="slideShow__slide">
-            <h3>Seasonal Flavours</h3>
-
-            <div id="btn-slide" class="btn-slide">
-              <a href="#" class="btn1">VIEW MENU</a>
-              <a href="#" class="btn2">BOOK A TABLE</a>
-            </div>
-          </div>
-          <div class="slideShow__slide">
-            <h3>Best for you</h3>
-
             <div id="btn-slide" class="btn-slide">
               <a href="#" class="btn1">VIEW MENU</a>
               <a href="#" class="btn2">BOOK A TABLE</a>
@@ -140,11 +99,62 @@
           </div>
         </div>
       </div>
-      <div class="btn-wrap">
-        <i id="prev" class="icon-circle-left btn"></i>
-        <i id="next" class="icon-circle-right btn"></i>
+
+      <div class="slide">
+        <div class="container">
+          <div class="caption">
+            <h3>Fresh Ingredients</h3>
+            <div id="btn-slide" class="btn-slide">
+              <a href="#" class="btn1">VIEW MENU</a>
+              <a href="#" class="btn2">BOOK A TABLE</a>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <div class="slide">
+        <div class="container">
+          <div class="caption">
+            <h3>Fresh. Delicious. Healthy.</h3>
+            <div id="btn-slide" class="btn-slide">
+              <a href="#" class="btn1">VIEW MENU</a>
+              <a href="#" class="btn2">BOOK A TABLE</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+          <div class="caption">
+            <h3>Seasonal Flavours</h3>
+            <div id="btn-slide" class="btn-slide">
+              <a href="#" class="btn1">VIEW MENU</a>
+              <a href="#" class="btn2">BOOK A TABLE</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="container">
+          <div class="caption">
+            <h3>Best for you</h3>
+            <div id="btn-slide" class="btn-slide">
+              <a href="#" class="btn1">VIEW MENU</a>
+              <a href="#" class="btn2">BOOK A TABLE</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
+    <!-- controls -->
+    <div class="controls">
+      <div class="prev"> { </div>
+      <div class="next">}</div>
+    </div>
+
   </section>
 
   <!-- Our Menu -->
@@ -158,7 +168,7 @@
     <!-- food menu -->
     <div class="wrap-filter-menu">
       <ul class="nav-tabs" role="tablist">
-        <li>
+        <li class="nav-item">
           <a class="nav-link active" id="lunch-tab" role="tab" data-art="lunch">Lunch</a>
         </li>
         <li class="nav-item">
@@ -964,7 +974,9 @@
 
     </span>
   </div>
+  <script src="js/slider.js"></script>
   <script src="js/menu.js"></script>
+
 </body>
 
 </html>

@@ -1,42 +1,57 @@
 window.addEventListener('load', function () {
-	const burgerBtn = document.querySelector('.burger-btn'); // Menu button element
-	const wrapSideMenu = document.getElementById('wrap_side_menu'); // Header element
-	const sideMenu = document.getElementById('side-menu');// Nav element
-	const height = "-" + sideMenu.clientHeight + "px";// Calculates nav height, adds - and px
-	const arrowMainMenu = document.getElementById('arrow-main-menu');
-	const wrapSubMenu = document.getElementById('wrap-sub-menu');
-	const subMenu = document.getElementById('sub-menu');
-	var intElemClientWidth = window.clientWidth;
+	// Mobile Nav
+	const mParent = document.querySelectorAll(".mobile-nav .m-drop-down");
+	const mNav = document.querySelector(".mobile-nav");
+	const toggleNav = document.getElementById("toggle-nav");
+	const burgerBtn = document.getElementById("burger-btn");
 
-	wrapSideMenu.style.marginTop = height; // Add negative margin of nav's height to header
-
-	function toggleClass(elem, className) {
-		if (elem.className.indexOf(className) !== -1) {
-			elem.className = elem.className.replace(className, '');
+	function closeAll(arg) {
+		for (let i = 0; i < arg.length; i++) {
+			arg[i].childNodes[2].style.display = "none";
 		}
-		else {
-			elem.className = elem.className.replace(/\s+/g, ' ') + ' ' + className;
-		}
-		return elem;
 	}
 
-	burgerBtn.addEventListener('click', function (e) {
-		toggleClass(wrapSideMenu, 'show');
-		wrapSubMenu.classList.remove('hide');
+	for (let i = 0; i < mParent.length; i++) {
+		mParent[i].addEventListener("click", function () {
+			let ddStatus = mParent[i].childNodes[2].style.display;
+
+			if (ddStatus === "block") {
+				mParent[i].childNodes[2].style.display = "none";
+			} else {
+				closeAll(mParent);
+				mParent[i].childNodes[2].style.display = "block";
+			}
+		})
+	}
+
+	toggleNav.addEventListener("click", function () {
+		mNav.classList.toggle("open");
+	})
+
+	//close menu if click out
+	window.addEventListener('click', function (e) {
+		if (mNav.contains(e.target) || toggleNav.contains(e.target)) {
+			console.log("Clicked in Box");
+		} else {
+			mNav.classList.toggle("open");
+			burgerBtn.checked = false;
+		}
 	});
 
-	// window.addEventListener('click', function (e) {
-	// 	if (sideMenu.contains(e.target)) {
-	// 		console.log("Clicked in Box");
-	// 	} else {
-	// 		console.log("Clicked out Box");
-	// 		//toggleClass(wrapSideMenu, 'show');
-	// 	}
-	// });
 
-	arrowMainMenu.addEventListener('click', function () {
-		toggleClass(wrapSubMenu, 'hide');
+
+	var windowH = $(window).height() / 2;
+
+	$(window).on('scroll', function () {
+		if ($(this).scrollTop() > windowH) {
+			$("#myBtn").css('display', 'flex');
+		} else {
+			$("#myBtn").css('display', 'none');
+		}
 	});
 
-	
+	$('#myBtn').on("click", function () {
+		$('html, body').animate({ scrollTop: 0 }, 300);
+	});
+
 });

@@ -2,32 +2,78 @@
 .slider-section {
   height: 100vh;
   @include flex-center;
+  overflow: hidden;
+  position: relative;
+
+  .controls .prev,
+  .controls .next {
+    position: absolute;
+    z-index: 6;
+    @include basic(4rem, 4rem);
+    border-radius: 50%;
+    font-size: $f24;
+    opacity: 0.8;
+    color: $light;
+    background: $light-grey;
+    text-align: center;
+    line-height: 4rem;
+    cursor: pointer;
+
+    &:hover {
+      background: $light-black;
+      opacity: 1;
+      transition: all 150ms ease-in-out;
+    }
+  }
+
+  .controls .prev {
+    right: 95vw;
+  }
+  .controls .next {
+    right: 2vw;
+  }
 }
 
-.slideShow {
-  position: relative;
-  @include basic(100vh, 100%);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.35);
+.slider {
+  width: 100%;
+  height: 100vh;
 
-  &__container {
-    @include basic(100%, 100%);
-    overflow: hidden;
-  }
-
-  &__slider {
-    position: relative;
+  .slide {
+    position: absolute;
     left: 0;
-    @include basic(100%, 500%);
-    transition: 300ms ease-in-out;
-    display: flex;
-  }
-
-  &__slide {
-    align-items: flex-start;
-    @include basic(100%, 20%);
+    top: 0;
+    width: 100%;
+    height: 100%;
     background-size: cover;
-    @include flex-center;
-    flex-direction: column;
+    background-position: center;
+    z-index: 5;
+    display: none;
+    animation: slide 2s ease;
+
+    &.active {
+      @include flex-center;
+
+      .caption h3 {
+        opacity: 0;
+        animation: captionText 0.5s ease forwards;
+        animation-delay: 1s;
+      }
+
+      .caption div {
+        opacity: 0;
+        animation: captionText 0.5s ease forwards;
+        animation-delay: 1.2s;
+      }
+    }
+
+    .container {
+      @include flex-center;
+    }
+
+    .caption {
+      @include flex-center;
+      flex-direction: column;
+    }
 
     &:nth-child(1) {
       background-image: url("../img/main.jpg");
@@ -48,39 +94,6 @@
     &:nth-child(5) {
       background-image: url("../img/main4.jpg");
     }
-  }
-}
-
-// ---------- Buttons '<' and '>' ---------- //
-.btn {
-  position: absolute;
-  bottom: 50vh;
-  @include basic(4rem, 4rem);
-  border-radius: 50%;
-  font-size: 4rem;
-  opacity: 0.5;
-  color: $light;
-  background: $light-grey;
-  cursor: pointer;
-  user-select: none;
-  transition: background 150ms ease-in-out;
-
-  &:first-child {
-    left: 1rem;
-  }
-
-  &:last-child {
-    right: 1rem;
-  }
-
-  &:hover {
-    background: $light-black;
-    opacity: 1;
-    transition: all 150ms ease-in-out;
-  }
-
-  &:active {
-    transform: scale(1.2);
   }
 }
 
@@ -119,20 +132,27 @@
   }
 }
 
-@media (max-width: 1024px) {
-  .slider-section {
-    margin-top: -9rem;
+@media (max-width: 770px) {
+  .slider-section .controls .prev {
+    right: 93vw;
   }
 }
 
 @media (max-width: 450px) {
-  .slideShow__slide {
-    background-position: center;
-
-    h3 {
-      font-size: $f50;
-    }
+  .slider-section .controls .prev,
+  .slider-section .controls .next {
+    @include basic(3.5rem, 3.5rem);
+    font-size: $f18;
+    line-height: 3.5rem;
   }
+
+  .slider-section .controls .prev {
+    right: 86vw;
+  }
+  .slider-section .controls .next {
+    right: 5vw;
+  }
+
   .btn-slide {
     margin-top: 5rem;
 
