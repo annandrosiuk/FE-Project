@@ -6,7 +6,7 @@ body{
 .container {
   width: 90%;
   @include dis-flex(space-between, flex-start);
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .hidden{
