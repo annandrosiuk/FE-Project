@@ -89,14 +89,14 @@
         <div class="pages-banner-wrapper about-banner-wrapper">
             <!-- title our menu -->
             <div class="wrap-title">
-                <h2>Our Menu</h2>
-                <h6>HOME / OUR MENU</h6>
+                <h2>About us</h2>
+                <h6>HOME / About us</h6>
             </div>
         </div>
     </section>
 
-    <section class="contact-section">
-        <div class="contact-text-wrapper">
+    <section class="two-cols-section">
+        <div class="first-col-wrapper scrollPage">
             <div class="wrap-title">
                 <h6>INTRODUCTION</h6>
                 <h2>Our Deli</h2>
@@ -115,19 +115,19 @@
             <div class="contact-text-img"></div>
         </div>
 
-        <div class="form contact-section-photo">
-
+        <div class="second-col-wrapper ">
+            <video controls>
+                <source src="img/Behind the Scenes at Restaurant Gordon Ramsay.mp4" type="video/webm">
+                Sorry, your browser doesn't support embedded videos.
+            </video>
         </div>
-
     </section>
 
-
-    <section class="contact-section">
-        <div class="form contact-section-photo">
-
+    <section class="two-cols-section our-food-wrapper">
+        <div class="second-col-wrapper contact-section-photo">
         </div>
 
-        <div class="contact-text-wrapper">
+        <div class="first-col-wrapper scrollPage">
             <div class="wrap-title">
                 <h6>INTRODUCTION</h6>
                 <h2>Our Food</h2>
@@ -142,25 +142,23 @@
                 sodales eget posuere in, commodo dictum felis. Aenean leo neque, pharetra vitae dui et, pretium
                 venenatis metus.
             </p>
+
         </div>
-
-
-
     </section>
 
     <!-- Our Events -->
-    <section class="events-section">
-        <!-- title our menu -->
+    <section class="three-col-section personal-wrapper">
+        <!-- title our events -->
         <div class="wrap-title">
             <h6>Discover our</h6>
             <h2>Awesome Staffs</h2>
         </div>
 
         <!-- Events wrapper -->
-        <div class="wrap-events ">
+        <div class="three-col-wrap scrollPage">
             <!-- First event -->
-            <div class="event-wrapper">
-                <div class="event-wrapper__photo staff-wrapper__photo1"></div>
+            <div class="col-wrapper">
+                <div class="col-wrapper__photo staff-wrapper__photo1"></div>
                 <h4>Harry Lucas</h4>
                 <p>dining room manager</p>
                 <p>
@@ -171,8 +169,8 @@
             </div>
 
             <!-- Second event -->
-            <div class="event-wrapper">
-                <div class="event-wrapper__photo staff-wrapper__photo2"></div>
+            <div class="col-wrapper">
+                <div class="col-wrapper__photo staff-wrapper__photo2"></div>
                 <h4>Matthew Robinson</h4>
                 <p>executive chef</p>
                 <p>
@@ -182,8 +180,8 @@
             </div>
 
             <!-- Third event -->
-            <div class="event-wrapper">
-                <div class="event-wrapper__photo staff-wrapper__photo3"></div>
+            <div class="col-wrapper">
+                <div class="col-wrapper__photo staff-wrapper__photo3"></div>
                 <h4>Angela Johnston</h4>
                 <p>event coordinator</p>
                 <p>
@@ -193,6 +191,7 @@
             </div>
         </div>
     </section>
+
     <!-- Footer -->
     <footer class="footer">
         <!-- Main footer wrapper -->
@@ -261,14 +260,12 @@
     </footer>
 
     <!-- Back to top -->
-    <div class="btn-back-to-top" id="myBtn">
+    <!-- <div class="btn-back-to-top" id="myBtn">
         <span class="symbol-btn-back-to-top">
-            <!-- <a href="#top"> -->
             <i class="icon-keyboard_arrow_up"></i>
-            <!-- </a> -->
-
         </span>
-    </div>
+    </div> -->
+    <script src="js/scrollPage.js"></script>
 </body>
 
 </html>

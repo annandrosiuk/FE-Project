@@ -5,17 +5,6 @@
   flex-direction: column;
 }
 
-// ---------- Title of our menu ---------- //
-.wrap-title {
-  text-align: center;
-  padding: 10rem 0 5rem 0;
-
-  & > h2 {
-    color: $light-black;
-    font-size: $f50;
-  }
-}
-
 // ---------- Filter menu ---------- //
 .wrap-filter-menu {
   width: 100%;

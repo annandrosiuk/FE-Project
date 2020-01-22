@@ -1,0 +1,131 @@
+// ---------- Our Events ---------- //
+.three-col-section {
+  background-color: $white;
+  @include flex-center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.three-col-wrap {
+  @include dis-flex(space-between, center);
+  width: 90%;
+  margin-bottom: 5rem;
+}
+
+// ---------- Each event ---------- //
+.col-wrapper {
+  max-width: 30%;
+  @include dis-flex(center, flex-start);
+  flex-direction: column;
+
+  &__photo {
+    width: 100%;
+    height: 20rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  &__photo1 {
+    background-image: url("../img/banner4.jpg");
+  }
+
+  &__photo2 {
+    background-image: url("../img/banner2.jpg");
+  }
+
+  &__photo3 {
+    background-image: url("../img/banner3.jpg");
+  }
+
+  h4 {
+    font-size: $f18;
+    font-weight: 900;
+    font-family: $ltb;
+    margin: 2rem 0 1rem 0;
+  }
+
+  &__date {
+    margin-top: 1rem;
+    span {
+      font-size: $f14;
+      font-family: $ltb;
+      color: $light-grey;
+      padding: 0.5rem 1rem;
+      border-right: 1px solid $light-grey;
+
+      &:first-child {
+        padding-left: 0;
+      }
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+  }
+}
+
+// ---------- Link to event page ---------- //
+.href-to {
+  color: $dark-grey;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-bottom: 10rem;
+}
+
+@media (max-width: 1024px) {
+  .three-col-wrap {
+    @include dis-flex(space-around, center);
+    width: 100%;
+  }
+
+  .col-wrapper {
+    max-width: 30%;
+
+    &__photo {
+      height: 17.5rem;
+    }
+
+    h4 {
+      font-size: $f16;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .three-col-wrap {
+    @include flex-center;
+    flex-direction: column;
+  }
+
+  .col-wrapper {
+    max-width: 70%;
+    margin-bottom: 5rem;
+
+    &__photo {
+      height: 27rem;
+    }
+
+    h4 {
+      font-size: $f18;
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .col-wrapper {
+    max-width: 80%;
+
+    &__photo {
+      height: 20rem;
+    }
+
+    &__date {
+      margin-top: 1rem;
+      span {
+        font-size: $f12;
+        padding: 0.5rem;
+      }
+    }
+  }
+}

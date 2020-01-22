@@ -23,8 +23,97 @@
   background-image: url("../img/icons/sign.png");
 }
 
-.contact-section .contact-section-photo{
-  height: 40rem;
-  background-color: $blue;
-  background-image: url("../img/banner1.jpg");
+
+
+.two-cols-section {
+  width: 100%;
+  padding: 10rem 0 5rem 0;
+  @include dis-flex(space-around, center);
+
+  .first-col-wrapper,
+  .second-col-wrapper {
+    width: 45%;
+  }
+
+  .first-col-wrapper {
+    @include dis-flex(center, flex-start);
+    flex-direction: column;
+
+    .wrap-title {
+      @include dis-flex(center, flex-start);
+      flex-direction: column;
+      padding-top: 0;
+    }
+
+    .wrap-footer__column {
+      margin: 3rem 0 0 0;
+      padding: 0;
+      width: 100%;
+    }
+  }
+}
+
+.second-col-wrapper {
+  width: 100%;
+  @include dis-flex(flex-start, flex-start);
+  flex-direction: column;
+}
+
+.two-cols-section {
+  video{
+    width: 100%;
+    max-height: 40rem;
+    outline: none;
+  }
+
+  .contact-section-photo{
+    height: 40rem;
+    background-image: url("../img/food1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+.our-food-wrapper .scrollPage.animation {
+  animation: slide 0.6s ease forwards;
+}
+
+@media screen and (max-width: 420px){
+  .our-food-wrapper{
+    padding: 5rem 0;
+  }
+  
+}
+
+@media (max-width: 1024px) {
+  .first-col-wrapper,
+  .second-col-wrapper {
+    width: 40%;
+  }
+}
+
+@media (max-width: 420px) {
+  .two-cols-section {
+    flex-direction: column;
+    padding: 5rem 0;
+
+    .first-col-wrapper,
+    .second-col-wrapper {
+      width: 90%;
+    }
+
+    .first-col-wrapper {
+      margin: 0 0 2rem 0;
+    }
+  }
+
+  .our-food-wrapper  {
+    .second-col-wrapper{
+      order: 2;
+    }
+
+    .first-col-wrapper {
+      order: 1;
+    }
+  }
 }
