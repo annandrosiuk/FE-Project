@@ -24,6 +24,11 @@
       opacity: 1;
       transition: all 150ms ease-in-out;
     }
+
+    .icon-circle-left:before,
+    .icon-circle-right:before {
+      font-size: $f40;
+    }
   }
 
   .controls .prev {
@@ -159,6 +164,19 @@
     .btn1,
     .btn2 {
       padding: 1rem 2rem;
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .btn-slide {
+    .btn1,
+    .btn2 {
+      padding: 1rem 2rem;
+    }
+
+    .btn1 {
+      margin-right: 0.5rem;
     }
   }
 }

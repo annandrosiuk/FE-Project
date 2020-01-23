@@ -33,7 +33,7 @@ window.addEventListener('load', function () {
 		if (mNav.contains(e.target) || toggleNav.contains(e.target)) {
 			console.log("Clicked in Box");
 		} else {
-			mNav.classList.toggle("open");
+			mNav.classList.remove("open");
 			burgerBtn.checked = false;
 		}
 	});

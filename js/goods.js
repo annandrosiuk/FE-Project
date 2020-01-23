@@ -103,7 +103,7 @@ fetch('goods.json')
             // first prev i-2 i-1 i i+1 i+2 next last
             const params = new URLSearchParams(location.search);
 
-            const pagesList = (json, pageId, itemsPerPage = 9, variance = 2) => {
+            const pagesList = (json, pageId, itemsPerPage = 9, variance = 1) => {
 
                 pageId = Math.max(0, +pageId || 0);
                 itemsPerPage = Math.max(1, +itemsPerPage || 0);
@@ -180,9 +180,28 @@ fetch('goods.json')
                 let brr = pagesList(json, 0);
                 let out = '';
                 for (let key in brr) {
-                    out += '<div  data-text="' + brr[key]['text'] + '" data-href="' + brr[key]['link'] + '" class="single-btn ' + brr[key]['class'] + '">';
-                    out += '<a href="' + brr[key]['link'] + '" data-text="' + brr[key]['text'] + '">' + brr[key]['text'] + '</a>';
-                    out += '</div>';
+                    if (brr[key]['class'] == 'next') {
+                        out += '<div  data-text="' + brr[key]['text'] + '" data-href="' + brr[key]['link'] + '" class="single-btn ' + brr[key]['class'] + '">';
+                        out += '<a href="' + brr[key]['link'] + '" data-text="' + brr[key]['text'] + '">' + '>' + '</a>';
+                        out += '</div>';
+                    } if (brr[key]['class'] == 'last') {
+                        out += '<div  data-text="' + brr[key]['text'] + '" data-href="' + brr[key]['link'] + '" class="single-btn ' + brr[key]['class'] + '">';
+                        out += '<a href="' + brr[key]['link'] + '" data-text="' + brr[key]['text'] + '">' + '>>' + '</a>';
+                        out += '</div>';
+                    } if (brr[key]['class'] == 'prev') {
+                        out += '<div  data-text="' + brr[key]['text'] + '" data-href="' + brr[key]['link'] + '" class="single-btn ' + brr[key]['class'] + '">';
+                        out += '<a href="' + brr[key]['link'] + '" data-text="' + brr[key]['text'] + '">' + '<' + '</a>';
+                        out += '</div>';
+                    } if (brr[key]['class'] == 'first') {
+                        out += '<div  data-text="' + brr[key]['text'] + '" data-href="' + brr[key]['link'] + '" class="single-btn ' + brr[key]['class'] + '">';
+                        out += '<a href="' + brr[key]['link'] + '" data-text="' + brr[key]['text'] + '">' + '<<' + '</a>';
+                        out += '</div>';
+                    }
+                    else if (brr[key]['class'] !== 'next' && brr[key]['class'] !== 'last' && brr[key]['class'] !== 'prev' && brr[key]['class'] !== 'first') {
+                        out += '<div  data-text="' + brr[key]['text'] + '" data-href="' + brr[key]['link'] + '" class="single-btn ' + brr[key]['class'] + '">';
+                        out += '<a href="' + brr[key]['link'] + '" data-text="' + brr[key]['text'] + '">' + brr[key]['text'] + '</a>';
+                        out += '</div>';
+                    }
                 }
 
                 $('#pagination').html(out);
@@ -199,9 +218,28 @@ fetch('goods.json')
                 let brr = pagesList(json, articul);
                 let out = '';
                 for (let key in brr) {
-                    out += '<div  data-text="' + brr[key]['text'] + '" data-href="' + brr[key]['link'] + '" class="single-btn ' + brr[key]['class'] + '">';
-                    out += '<a href="' + brr[key]['link'] + '" data-text="' + brr[key]['text'] + '">' + brr[key]['text'] + '</a>';
-                    out += '</div>';
+                    if (brr[key]['class'] == 'next') {
+                        out += '<div  data-text="' + brr[key]['text'] + '" data-href="' + brr[key]['link'] + '" class="single-btn ' + brr[key]['class'] + '">';
+                        out += '<a href="' + brr[key]['link'] + '" data-text="' + brr[key]['text'] + '">' + '>' + '</a>';
+                        out += '</div>';
+                    } if (brr[key]['class'] == 'last') {
+                        out += '<div  data-text="' + brr[key]['text'] + '" data-href="' + brr[key]['link'] + '" class="single-btn ' + brr[key]['class'] + '">';
+                        out += '<a href="' + brr[key]['link'] + '" data-text="' + brr[key]['text'] + '">' + '>>' + '</a>';
+                        out += '</div>';
+                    } if (brr[key]['class'] == 'prev') {
+                        out += '<div  data-text="' + brr[key]['text'] + '" data-href="' + brr[key]['link'] + '" class="single-btn ' + brr[key]['class'] + '">';
+                        out += '<a href="' + brr[key]['link'] + '" data-text="' + brr[key]['text'] + '">' + '<' + '</a>';
+                        out += '</div>';
+                    } if (brr[key]['class'] == 'first') {
+                        out += '<div  data-text="' + brr[key]['text'] + '" data-href="' + brr[key]['link'] + '" class="single-btn ' + brr[key]['class'] + '">';
+                        out += '<a href="' + brr[key]['link'] + '" data-text="' + brr[key]['text'] + '">' + '<<' + '</a>';
+                        out += '</div>';
+                    }
+                    else if (brr[key]['class'] !== 'next' && brr[key]['class'] !== 'last' && brr[key]['class'] !== 'prev' && brr[key]['class'] !== 'first') {
+                        out += '<div  data-text="' + brr[key]['text'] + '" data-href="' + brr[key]['link'] + '" class="single-btn ' + brr[key]['class'] + '">';
+                        out += '<a href="' + brr[key]['link'] + '" data-text="' + brr[key]['text'] + '">' + brr[key]['text'] + '</a>';
+                        out += '</div>';
+                    }
                 }
 
                 $('#pagination').html(out);
