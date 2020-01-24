@@ -1,0 +1,16 @@
+.checkout .wrap-header{
+    background-color: $black;
+}
+
+.checkout-wrapper{
+    width: 100%;
+    @include flex-center;
+    flex-direction: column;
+    height: 100vh;
+
+    h4{
+        font-size: $f40;
+        text-align: center;
+        animation: text 1.5s ease-in-out ;
+    }
+}

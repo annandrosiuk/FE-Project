@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Shop page</title>
+  <title>Check out</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="img/icons/home-boxed-logo.png" />
@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <header>
+  <header class="checkout">
     <!-- Header Desktop -->
     <div class="wrap-header" id="wrap_header">
       <!-- Logo -->
@@ -84,58 +84,11 @@
   </header>
 
   <!-- Shop Banner -->
-  <section class="pages-banner-section">
-    <div class="pages-banner-wrapper shop-banner-wrapper">
-      <!-- title our menu -->
-      <div class="wrap-title">
-        <h2>Your cart</h2>
-        <h6>HOME / Your cart</h6>
-      </div>
-    </div>
+  
+
+  <section class="checkout-wrapper">
+    <h4 class="congrats">Thank you! Your order order has been confirmed. Wait for a call!</h4>
   </section>
-
-  <section class="cart-section">
-    <div class="container">
-      <table class="full-cart-wrapper table-shopping-cart">
-        <thead>
-          <tr class="table-header table_head">
-            <th class="col-1">product</th>
-            <th class="col-2">NAME & DESCRIPTION</th>
-            <th class="col-3">PRICE</th>
-            <th class="col-4">QUANTITY</th>
-            <th class="col-5"> TOTAL</th>
-            <th class="col-6"></th>
-          </tr>
-        </thead>
-
-        <tbody id="cart">
-        </tbody>
-      </table>
-
-
-
-      <div class="total-sum-wrapper" id="total-sum-wrapper">
-        <a href="shop-page.html">Continue to shopping</a>
-        <p id="total"></p>
-      </div>
-
-      <div class="form-wrap">
-        <form class="form" method="GET">
-          <div class="input-wrapper">
-            <input name="name" class="form-input" id="form-username" placeholder="Username" required></input>
-            <input name="tel" class="form-input" id="form-number" placeholder="Phone number" type="tel"
-              required></input>
-          </div>
-          <button id="cart-submit" type="button" class="form-btn" value="Submit" disabled>
-            <a href="check-out.html">Submit</a>
-          </button>
-          </input>
-        </form>
-      </div>
-    </div>
-    <div id="empty"></div>
-  </section>
-
 
   <!-- Footer -->
   <footer class="footer">
@@ -210,7 +163,6 @@
       <i class="icon-keyboard_arrow_up"></i>
     </span>
   </div> -->
-  <script src="js/cart.js"></script>
 </body>
 
 </html>

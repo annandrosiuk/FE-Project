@@ -208,6 +208,7 @@ fetch('goods.json')
                 $('.single-btn').on('click', changePagination);
             }
             firstPagination();
+            
             function changePagination(e) {
                 //change page
                 e.preventDefault();

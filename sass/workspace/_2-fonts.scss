@@ -19,7 +19,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 .icon-tripadvisor:before {
-  content: "\e900";
+  content: "\e901";
+}
+
+.icon-cart:before {
+  content: "\e93a";
 }
 
 .icon-twitter:before {

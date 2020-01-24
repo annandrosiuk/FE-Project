@@ -14,24 +14,31 @@ $.getJSON('goods.json', function (data) {
             out += '<h4>Cart empty. Add goods in your cart.</h4>';
             out += '<a class="italic" href="shop-page.html"> Go to shop</a>';
             out += '</div>';
-            $('#cart').html(out);
-            $('#total-sum-wrapper').css("display", "none");
+            $('#empty').html(out);
+            $('.cart-section .container').css("display", "none");
         } else {
             for (let key in cart) {
-                out += '<div class="cart-wrapper">';
-                out += '<img class="image-cart" src=" ' + data[key].image + ' ">';
-                out += '<h4>' + data[key].name + '</h4>';
-                out += '<p class="price">' + data[key].cost + '&#8372;</p>';
+                out += '<tr>';
+                out += '<td class="col-1">';
+                out += '<img class="image-cart img-product" src=" ' + data[key].image + ' ">';
+                out += '</td>';
 
-                out += '<div class="count-wrapper">';
+                out += '<td class="col-2">' + data[key].name + '</td>';
+
+                out += '<td class="col-3">' + data[key].cost + '&#8372;</td>';
+
+                out += '<td class="col-4 price">';
                 out += '<button class="minus" data-art="' + key + '">-</button>';
                 out += '<p>' + cart[key] + '</p>'
                 out += '<button class="plus" data-art="' + key + '">+</button>';
-                out += '</div>';
+                out += '</td>';
 
-                out += '<p class="total-price">' + cart[key] * data[key].cost; + '&#8372;</p>';
+                out += '<td class="col-5">' + cart[key] * data[key].cost; + '&#8372;</td>';
+
+                out += '<td class="col-6">';
                 out += '<button class="delete" data-art="' + key + '">X</button>';
-                out += '</div>';
+                out += '</td>';
+                out += '</tr>';
 
                 sum += goods[key]['cost'] * cart[key];
             }
@@ -39,6 +46,12 @@ $.getJSON('goods.json', function (data) {
             $('.plus').on('click', plusGoods);
             $('.minus').on('click', minusGoods);
             $('.delete').on('click', deleteGoods);
+
+            $('#cart-submit').on('click', function (e) {
+                //e.preventDefault();
+                cart = {};
+                SaveCartToLS();
+            });
 
             $('#total').html('Total: ' + sum + '&#8372;');
         }
@@ -82,3 +95,20 @@ function checkCart() {
 function SaveCartToLS() {
     localStorage.setItem('cart', JSON.stringify(cart));
 }
+
+
+//disable/enable btn submit
+const inputName = document.getElementById('form-username');
+const inputNum = document.getElementById('form-number');
+const btnSubmit = document.getElementById('cart-submit');
+
+function disBtn(){
+    if(inputName.value.length > 0 && inputNum.value.length > 0){
+        btnSubmit.disabled = false;
+    } else {
+        btnSubmit.disabled = true;
+    }
+}
+
+inputName.addEventListener('keyup', disBtn);
+inputNum.addEventListener('keyup', disBtn);
