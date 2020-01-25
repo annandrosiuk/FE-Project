@@ -14,20 +14,26 @@
     font-size: $f24;
     opacity: 0.8;
     color: $light;
-    background: $light-grey;
     text-align: center;
     line-height: 4rem;
     cursor: pointer;
 
     &:hover {
-      background: $light-black;
       opacity: 1;
-      transition: all 150ms ease-in-out;
+      transition: all .4s ease-in-out;
+
+      .icon-circle-left:before,
+      .icon-circle-right:before {
+        background: $light-black;
+        transition: all .4s ease-in-out;
+      }
     }
 
     .icon-circle-left:before,
     .icon-circle-right:before {
       font-size: $f40;
+      background: $light-grey;
+      border-radius: 50%;
     }
   }
 

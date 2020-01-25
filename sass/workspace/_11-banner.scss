@@ -34,7 +34,8 @@
 }
 
 @media (max-width: 320px) {
-  .container {
+  .banner-section .container {
+    @include flex-center;
     font-size: $f40;
   }
 }
