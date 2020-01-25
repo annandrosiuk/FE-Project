@@ -10,7 +10,9 @@ fetch('goods.json')
         checkCart()
 
         function loadGoods() {
-            //filter items (9 per page)
+            const myJson = json;
+
+            //---------------------FILTER ITEMS (9 per page)
             const filterItems = (json, pageId, item, itemsPerPage = 9) =>
                 json.filter((item, index) => {
                     const page = Math.floor(index / itemsPerPage);
@@ -18,12 +20,12 @@ fetch('goods.json')
                 });
 
             //show them
-            function showAll(data, index, item) {
+            function showAll(data, index) {
 
-                let arr = filterItems(data, index, item);
+                let arr = filterItems(data, index);
                 console.log(arr);
 
-                let out = '';
+                let out = '', out1 = '';
                 for (let key in arr) {
                     out += '<div class="single-good" data-price="' + arr[key]['cost'] + '" data-name="' + arr[key]['name'] + '" data-art="' + arr[key]['id'] + '">';
                     out += '<img class="image" src=" ' + arr[key]['image'] + ' ">';
@@ -32,246 +34,234 @@ fetch('goods.json')
                     out += '<button class="add-to-cart" data-art="' + arr[key]['id'] + '">Buy</button>';
                     out += '</div>';
                 }
-
+                out1 += '<p class="goods-count">Here`s all ' + data.length + ' delisious dishes for you.</p>';
+                $('#goods-count').html(out1);
                 $('#goods').html(out);
                 $('button.add-to-cart').on('click', addToCard);
             }
 
-            showAll(json, 0);
+            showAll(myJson, 0);
 
             //Filtration onclick
             $('#beer').on('click', filterGoods);
-            $('#beer').on('click', function () {
-                $("#select").val('default');
-                firstPagination();
-            });
-
             $('#burger').on('click', filterGoods);
-            $('#burger').on('click', function () {
-                $("#select").val('default');
-                firstPagination();
-            });
-
             $('#steak').on('click', filterGoods);
-            $('#steak').on('click', function () {
-                $("#select").val('default');
-                firstPagination();
-            });
-
             $('#drink').on('click', filterGoods);
-            $('#drink').on('click', function () {
-                $("#select").val('default');
-                firstPagination();
-            });
-
             $('#wok').on('click', filterGoods);
-            $('#wok').on('click', function () {
-                $("#select").val('default');
-                firstPagination();
-            });
-
             $('#desert').on('click', filterGoods);
-            $('#desert').on('click', function () {
-                $("#select").val('default');
-                firstPagination();
-            });
-
             $('#soup').on('click', filterGoods);
-            $('#soup').on('click', function () {
-                $("#select").val('default');
-                firstPagination();
-            });
-
             $('#snack').on('click', filterGoods);
-            $('#snack').on('click', function () {
-                $("#select").val('default');
-                firstPagination();
-            });
-
             $('#salad').on('click', filterGoods);
-            $('#salad').on('click', function () {
-                $("#select").val('default');
-                firstPagination();
-            });
-
             $('#all').on('click', function () {
-                showAll(json, 0);
-                $("#select").val('default');
-                firstPagination();
+                showAll(myJson, 0);
+                paginate(myJson, myJson.length);
+                selectBox.addEventListener('change', function () {
+                    changeFunc(myJson)
+                });
             });
 
-            // first prev i-2 i-1 i i+1 i+2 next last
-            const params = new URLSearchParams(location.search);
+            //---------------------PAGINATION
+            function paginate(elem, totalItems, currentPage = 1, itemsPerPage = 9, maxBtnPages = 5) {
+                //count of all pages
+                let totalPage = Math.ceil(totalItems / itemsPerPage);
 
-            const pagesList = (json, pageId, itemsPerPage = 9, variance = 1) => {
+                //check if current page isn't out of range
+                if (currentPage < 1) {
+                    currentPage = 1;
+                } else if (currentPage > totalPage) {
+                    currentPage = totalPage;
+                }
 
-                pageId = Math.max(0, +pageId || 0);
-                itemsPerPage = Math.max(1, +itemsPerPage || 0);
+                let startPage, endPage;
 
-                const pagesAmount = Math.ceil(json.length / itemsPerPage);
-                const pageIdFirst = 0;
-                const pageIdLast = Math.max(pageIdFirst, pagesAmount - 1);
-                const pageIdNext = Math.min(pageId + 1, pageIdLast);
-                const pageIdPrev = Math.max(pageId - 1, pageIdFirst);
-                const pages = [...Array(1 + 2 * variance)].map((item, index) => {
-                    return index - variance + pageId;
-                }).filter((page) => {
-                    return pageIdFirst <= page && page <= pageIdLast;
-                }).map(page => {
-                    const params = new URLSearchParams(location.search);
-                    params.set('page', page);
-                    return {
-                        ...page === pageId ? { class: 'current', current: true } : {},
-                        link: `${location.pathname}?${params}`,
-                        text: `${page + 1}`,
+                if (totalPage <= maxBtnPages) {
+                    startPage = 1;
+                    endPage = totalPage;
+                } else {
+                    //totalPages more than maxPages, calculate start/end pages
+                    let maxPageBeforeCurrentPage = Math.floor(maxBtnPages / 2);
+                    let maxPageAfterCurrentPage = Math.ceil(maxBtnPages / 2) - 1;
+
+                    if (currentPage <= maxPageBeforeCurrentPage) {
+                        startPage = 1;
+                        endPage = maxBtnPages;
+                    } else if (currentPage + maxPageAfterCurrentPage >= totalPage) {
+                        startPage = totalPage - maxBtnPages + 1;
+                        endPage = totalPage;
+                    } else {
+                        startPage = currentPage - maxPageBeforeCurrentPage;
+                        endPage = currentPage + maxPageAfterCurrentPage;
                     }
-                });
-                const result = [];
-                if (pageIdFirst < pageId) {
-                    const page = pageIdFirst;
-                    const params = new URLSearchParams(location.search);
-                    params.set('page', page);
-                    result.push({
-                        first: true,
-                        class: 'first',
-                        link: `${location.pathname}?${params}`,
-                        text: `${page + 1}`, // ???
-                    });
                 }
-                if (pageIdFirst < pageIdPrev) {
-                    const page = pageIdPrev;
-                    const params = new URLSearchParams(location.search);
-                    params.set('page', page);
-                    result.push({
-                        prev: true,
-                        class: 'prev',
-                        link: `${location.pathname}?${params}`,
-                        text: `${page + 1}`, // ???
+
+                //calculate start and end item index
+                let startIndex = (currentPage - 1) * itemsPerPage;
+                let endIndex = Math.min(startPage + itemsPerPage - 1, totalItems - 1);
+
+
+                // first prev i-2 i-1 i i+1 i+2 next last
+                const params = new URLSearchParams(location.search);
+                const pagesList = (totalItems, startIndex, variance = 1) => {
+
+                    const pageIdFirst = 0;
+                    const pageIdLast = Math.max(pageIdFirst, totalPage - 1);
+                    const pageIdNext = Math.min(startIndex + 1, pageIdLast);
+                    const pageIdPrev = Math.max(startIndex - 1, pageIdFirst);
+                    const pages = [...Array(1 + 2 * variance)].map((item, index) => {
+                        return index - variance + startIndex;
+                    }).filter((page) => {
+                        return pageIdFirst <= page && page <= pageIdLast;
+                    }).map(page => {
+                        const params = new URLSearchParams(location.search);
+                        params.set('page', page);
+                        return {
+                            ...page === startIndex ? { class: 'current', current: true } : {},
+                            link: `${location.pathname}?${params}`,
+                            text: `${page + 1}`,
+                        }
                     });
+                    const result = [];
+                    if (pageIdFirst < startIndex) {
+                        const page = pageIdFirst;
+                        const params = new URLSearchParams(location.search);
+                        params.set('page', page);
+                        result.push({
+                            first: true,
+                            class: 'first',
+                            link: `${location.pathname}?${params}`,
+                            text: `${page + 1}`,
+                        });
+                    }
+                    if (pageIdFirst < pageIdPrev) {
+                        const page = pageIdPrev;
+                        const params = new URLSearchParams(location.search);
+                        params.set('page', page);
+                        result.push({
+                            prev: true,
+                            class: 'prev',
+                            link: `${location.pathname}?${params}`,
+                            text: `${page + 1}`,
+                        });
+                    }
+                    result.push(...pages);
+                    if (pageIdNext < pageIdLast) {
+                        const page = pageIdNext;
+                        const params = new URLSearchParams(location.search);
+                        params.set('page', page);
+                        result.push({
+                            next: true,
+                            class: 'next',
+                            link: `${location.pathname}?${params}`,
+                            text: `${page + 1}`,
+                        });
+                    }
+                    if (startIndex < pageIdLast) {
+                        const page = pageIdLast;
+                        const params = new URLSearchParams(location.search);
+                        params.set('page', page);
+                        result.push({
+                            last: true,
+                            class: 'last',
+                            link: `${location.pathname}?${params}`,
+                            text: `${page + 1}`,
+                        });
+                    }
+                    return result;
                 }
-                result.push(...pages);
-                if (pageIdNext < pageIdLast) {
-                    const page = pageIdNext;
-                    const params = new URLSearchParams(location.search);
-                    params.set('page', page);
-                    result.push({
-                        next: true,
-                        class: 'next',
-                        link: `${location.pathname}?${params}`,
-                        text: `${page + 1}`, // ???
-                    });
+
+                let pages;
+
+                function showBtn(a, b) {
+                    pages = pagesList(a, b);
+                    let brr = pages;
+
+                    let out = '';
+
+                    if (totalItems > itemsPerPage) {
+                        for (let key in brr) {
+                            if (brr[key]['class'] == 'next') {
+                                out += '<div  data-text="' + brr[key]['text'] + '" data-href="' + brr[key]['link'] + '" class="single-btn ' + brr[key]['class'] + '">';
+                                out += '<a href="' + brr[key]['link'] + '" data-text="' + brr[key]['text'] + '">' + '>' + '</a>';
+                                out += '</div>';
+                            } if (brr[key]['class'] == 'last') {
+                                out += '<div  data-text="' + brr[key]['text'] + '" data-href="' + brr[key]['link'] + '" class="single-btn ' + brr[key]['class'] + '">';
+                                out += '<a href="' + brr[key]['link'] + '" data-text="' + brr[key]['text'] + '">' + '>>' + '</a>';
+                                out += '</div>';
+                            } if (brr[key]['class'] == 'prev') {
+                                out += '<div  data-text="' + brr[key]['text'] + '" data-href="' + brr[key]['link'] + '" class="single-btn ' + brr[key]['class'] + '">';
+                                out += '<a href="' + brr[key]['link'] + '" data-text="' + brr[key]['text'] + '">' + '<' + '</a>';
+                                out += '</div>';
+                            } if (brr[key]['class'] == 'first') {
+                                out += '<div  data-text="' + brr[key]['text'] + '" data-href="' + brr[key]['link'] + '" class="single-btn ' + brr[key]['class'] + '">';
+                                out += '<a href="' + brr[key]['link'] + '" data-text="' + brr[key]['text'] + '">' + '<<' + '</a>';
+                                out += '</div>';
+                            }
+                            else if (brr[key]['class'] !== 'next' && brr[key]['class'] !== 'last' && brr[key]['class'] !== 'prev' && brr[key]['class'] !== 'first') {
+                                out += '<div  data-text="' + brr[key]['text'] + '" data-href="' + brr[key]['link'] + '" class="single-btn ' + brr[key]['class'] + '">';
+                                out += '<a href="' + brr[key]['link'] + '" data-text="' + brr[key]['text'] + '">' + brr[key]['text'] + '</a>';
+                                out += '</div>';
+                            }
+                        }
+                    }
+
+                    $('#pagination').html(out);
+                    $('.single-btn').on('click', next);
                 }
-                if (pageId < pageIdLast) {
-                    const page = pageIdLast;
-                    const params = new URLSearchParams(location.search);
-                    params.set('page', page);
-                    result.push({
-                        last: true,
-                        class: 'last',
-                        link: `${location.pathname}?${params}`,
-                        text: `${page + 1}`, // ???
-                    });
+                showBtn(totalItems, 0);
+
+                function next(e) {
+                    e.preventDefault();
+                    let articul = +$(this).attr('data-text') - 1;
+
+                    showAll(elem, articul);
+                    console.log(pagesList(totalItems, articul));
+                    showBtn(totalItems, articul);
                 }
-                return result;
+
+                return {
+                    totalItems: totalItems,
+                    currentPage: currentPage,
+                    itemsPerPage: itemsPerPage,
+                    totalPage: totalPage,
+                    startPage: startPage,
+                    endPage: endPage,
+                    startIndex: startIndex,
+                    endIndex: endIndex,
+                    pages: pages
+                };
             }
-            function firstPagination() {
 
+            console.log(paginate(myJson, myJson.length));
+            paginate(myJson, myJson.length);
 
-                let brr = pagesList(json, 0);
-                let out = '';
-                for (let key in brr) {
-                    if (brr[key]['class'] == 'next') {
-                        out += '<div  data-text="' + brr[key]['text'] + '" data-href="' + brr[key]['link'] + '" class="single-btn ' + brr[key]['class'] + '">';
-                        out += '<a href="' + brr[key]['link'] + '" data-text="' + brr[key]['text'] + '">' + '>' + '</a>';
-                        out += '</div>';
-                    } if (brr[key]['class'] == 'last') {
-                        out += '<div  data-text="' + brr[key]['text'] + '" data-href="' + brr[key]['link'] + '" class="single-btn ' + brr[key]['class'] + '">';
-                        out += '<a href="' + brr[key]['link'] + '" data-text="' + brr[key]['text'] + '">' + '>>' + '</a>';
-                        out += '</div>';
-                    } if (brr[key]['class'] == 'prev') {
-                        out += '<div  data-text="' + brr[key]['text'] + '" data-href="' + brr[key]['link'] + '" class="single-btn ' + brr[key]['class'] + '">';
-                        out += '<a href="' + brr[key]['link'] + '" data-text="' + brr[key]['text'] + '">' + '<' + '</a>';
-                        out += '</div>';
-                    } if (brr[key]['class'] == 'first') {
-                        out += '<div  data-text="' + brr[key]['text'] + '" data-href="' + brr[key]['link'] + '" class="single-btn ' + brr[key]['class'] + '">';
-                        out += '<a href="' + brr[key]['link'] + '" data-text="' + brr[key]['text'] + '">' + '<<' + '</a>';
-                        out += '</div>';
-                    }
-                    else if (brr[key]['class'] !== 'next' && brr[key]['class'] !== 'last' && brr[key]['class'] !== 'prev' && brr[key]['class'] !== 'first') {
-                        out += '<div  data-text="' + brr[key]['text'] + '" data-href="' + brr[key]['link'] + '" class="single-btn ' + brr[key]['class'] + '">';
-                        out += '<a href="' + brr[key]['link'] + '" data-text="' + brr[key]['text'] + '">' + brr[key]['text'] + '</a>';
-                        out += '</div>';
-                    }
-                }
-
-                $('#pagination').html(out);
-                $('.single-btn').on('click', changePagination);
-            }
-            firstPagination();
-            
-            function changePagination(e) {
-                //change page
-                e.preventDefault();
-                let articul = +$(this).attr('data-text') - 1;
-                showAll(json, articul);
-                console.log(pagesList(json, articul));
-
-                let brr = pagesList(json, articul);
-                let out = '';
-                for (let key in brr) {
-                    if (brr[key]['class'] == 'next') {
-                        out += '<div  data-text="' + brr[key]['text'] + '" data-href="' + brr[key]['link'] + '" class="single-btn ' + brr[key]['class'] + '">';
-                        out += '<a href="' + brr[key]['link'] + '" data-text="' + brr[key]['text'] + '">' + '>' + '</a>';
-                        out += '</div>';
-                    } if (brr[key]['class'] == 'last') {
-                        out += '<div  data-text="' + brr[key]['text'] + '" data-href="' + brr[key]['link'] + '" class="single-btn ' + brr[key]['class'] + '">';
-                        out += '<a href="' + brr[key]['link'] + '" data-text="' + brr[key]['text'] + '">' + '>>' + '</a>';
-                        out += '</div>';
-                    } if (brr[key]['class'] == 'prev') {
-                        out += '<div  data-text="' + brr[key]['text'] + '" data-href="' + brr[key]['link'] + '" class="single-btn ' + brr[key]['class'] + '">';
-                        out += '<a href="' + brr[key]['link'] + '" data-text="' + brr[key]['text'] + '">' + '<' + '</a>';
-                        out += '</div>';
-                    } if (brr[key]['class'] == 'first') {
-                        out += '<div  data-text="' + brr[key]['text'] + '" data-href="' + brr[key]['link'] + '" class="single-btn ' + brr[key]['class'] + '">';
-                        out += '<a href="' + brr[key]['link'] + '" data-text="' + brr[key]['text'] + '">' + '<<' + '</a>';
-                        out += '</div>';
-                    }
-                    else if (brr[key]['class'] !== 'next' && brr[key]['class'] !== 'last' && brr[key]['class'] !== 'prev' && brr[key]['class'] !== 'first') {
-                        out += '<div  data-text="' + brr[key]['text'] + '" data-href="' + brr[key]['link'] + '" class="single-btn ' + brr[key]['class'] + '">';
-                        out += '<a href="' + brr[key]['link'] + '" data-text="' + brr[key]['text'] + '">' + brr[key]['text'] + '</a>';
-                        out += '</div>';
-                    }
-                }
-
-                $('#pagination').html(out);
-                $('.single-btn').on('click', changePagination);
-            }
-
+            //---------------------SORT by selected options
             let selectBox = document.getElementById("select");
-            selectBox.addEventListener('change', changeFunc);
+            selectBox.addEventListener('change', function () {
+                changeFunc(myJson)
+            });
 
-            function changeFunc() {
-                //function for select options
+            //check which option was chosen
+            function changeFunc(data) {
                 let selectedValue = selectBox.options[selectBox.selectedIndex].value;
 
                 if (selectedValue == 'price-low') {
-                    mySort('cost');
-                    firstPagination();
+                    mySort('cost', data);
+                    paginate(data, data.length);
                 }
 
                 if (selectedValue == 'price-high') {
-                    mySortToHigh('cost');
-                    firstPagination();
+                    mySortToHigh('cost', data);
+                    paginate(data, data.length);
                 }
 
                 if (selectedValue == 'default') {
-                    mySort('id');
-                    firstPagination();
+                    mySort('id', data);
+                    paginate(data, data.length);
                 }
 
                 if (selectedValue == 'sort-by-name') {
-                    mySort('name');
-                    firstPagination();
+                    mySort('name', data);
+                    paginate(data, data.length);
                 }
             }
 
@@ -298,52 +288,33 @@ fetch('goods.json')
             }
 
             //sort elements
-            function mySort(el) {
-                let goods = json;
-                let sortEl = goods.sort(sortByProperty(el));
+            function mySort(el, data) {
+                let sortEl = data.sort(sortByProperty(el));
                 showAll(sortEl, 0);
             }
 
-            function mySortToHigh(el) {
-                let goods = json;
-                let sortEl = goods.sort(sortByPropertyHigh(el));
+            function mySortToHigh(el, data) {
+                let sortEl = data.sort(sortByPropertyHigh(el));
                 showAll(sortEl, 0);
             }
 
+            //---------------------FILTRATION
             function filterGoods() {
                 //filter by categories
-                let goods = json;
                 let articul = $(this).attr('id');
-                // console.log(goods);
+                let arr = [];
 
-                let divs = '';
-                for (let key in goods) {
-
-                    if ((goods[key]["category"] == articul)) {
-                        divs += '<div class="single-good" data-price="' + goods[key]['cost'] + '" data-name="' + goods[key]['name'] + '" data-art="' + goods[key]['id'] + '">';
-                        divs += '<img class="image" src=" ' + goods[key]['image'] + ' ">';
-                        divs += '<h4>' + goods[key]['name'] + '</h4>';
-                        divs += '<p>' + goods[key]['cost'] + ' &#8372;</p>';
-                        divs += '<button class="add-to-cart" data-art="' + goods[key]['id'] + '">Buy</button>';
-                        divs += '</div>';
+                for (let key in myJson) {
+                    if ((myJson[key]["category"] == articul)) {
+                        arr.push(myJson[key]);
                     }
-
                 }
-                $('#goods').html(divs);
 
-                // let some;
-                // let arr = [];
-                // for (let key in json) {
-                //     if ((json[key]["category"] == articul)) {
-                //         some = json[key];
-                //         //console.log(some);
-                //         // if (json[key]["category"] != null) {
-                //         arr[key] = some;
-                //         // } 
-
-                //     }
-                // }
-                // console.log(arr);
+                showAll(arr, 0);
+                paginate(arr, arr.length);
+                selectBox.addEventListener('change', function () {
+                    changeFunc(arr)
+                });
             }
         }
 
@@ -367,7 +338,10 @@ fetch('goods.json')
         }
 
         //search
-        // function searchFunction() {
+        let input = document.getElementById('myinput');
+        input.addEventListener("keyup", searchFunction);
+
+        function searchFunction() {
         //     let input, filter, goodsWrapper, singleGood, h4, i;
         //     input = document.getElementById('myinput');
         //     filter = input.value.toUpperCase();
@@ -395,28 +369,5 @@ fetch('goods.json')
         //         }
         //     }
         //     //singleGood = goodsWrapper.getElementsByClassName('single-good');
-        // }
-
-        // let input = document.getElementById('myinput');
-        // input.addEventListener("keyup", searchFunction);
+        }
     })
-
-// //search
-function searchFunction() {
-    let input, filter, goodsWrapper, singleGood, h4, i;
-    input = document.getElementById('myinput');
-    filter = input.value.toUpperCase();
-    goodsWrapper = document.getElementById('goods');
-    singleGood = goodsWrapper.getElementsByClassName('single-good');
-
-    for (i = 0; i < singleGood.length; i++) {
-        h4 = singleGood[i].getElementsByTagName('h4')[0];
-        if (h4.innerHTML.toUpperCase().indexOf(filter) > -1) {
-            singleGood[i].style.display = "";
-        }
-
-        else {
-            singleGood[i].style.display = 'none';
-        }
-    }
-}
