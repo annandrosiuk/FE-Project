@@ -11,6 +11,13 @@ fetch('goods.json')
 
         function loadGoods() {
             const myJson = json;
+            let input = document.getElementById('myinput');
+            
+            input.addEventListener("keyup", function () {
+                searchFunction(myJson);
+            });
+            
+            
 
             //---------------------FILTER ITEMS (9 per page)
             const filterItems = (json, pageId, item, itemsPerPage = 9) =>
@@ -44,20 +51,33 @@ fetch('goods.json')
 
             //Filtration onclick
             $('#beer').on('click', filterGoods);
+            $('#beer').on('click', function () { input.value = ''; });
             $('#burger').on('click', filterGoods);
+            $('#burger').on('click', function () { input.value = ''; });
             $('#steak').on('click', filterGoods);
+            $('#steak').on('click', function () { input.value = ''; });
             $('#drink').on('click', filterGoods);
+            $('#drink').on('click', function () { input.value = ''; });
             $('#wok').on('click', filterGoods);
+            $('#wok').on('click', function () { input.value = ''; });
             $('#desert').on('click', filterGoods);
+            $('#desert').on('click', function () { input.value = ''; });
             $('#soup').on('click', filterGoods);
+            $('#soup').on('click', function () { input.value = ''; });
             $('#snack').on('click', filterGoods);
+            $('#snack').on('click', function () { input.value = ''; });
             $('#salad').on('click', filterGoods);
+            $('#salad').on('click', function () { input.value = ''; });
             $('#all').on('click', function () {
                 showAll(myJson, 0);
                 paginate(myJson, myJson.length);
                 selectBox.addEventListener('change', function () {
                     changeFunc(myJson)
                 });
+                input.addEventListener("keyup", function () {
+                    searchFunction(myJson);
+                });
+                input.value = '';
             });
 
             //---------------------PAGINATION
@@ -310,12 +330,62 @@ fetch('goods.json')
                     }
                 }
 
+                console.log(arr);
+
                 showAll(arr, 0);
                 paginate(arr, arr.length);
                 selectBox.addEventListener('change', function () {
                     changeFunc(arr)
                 });
+
+                input.addEventListener("keyup", function () {
+                    searchFunction(arr);
+                });
             }
+
+            //---------------------SEARCH
+            function searchFunction(data) {
+                let value = input.value.toUpperCase();
+                let exp = new RegExp(input.value.toLowerCase());
+                let some;
+                let arr1 = [];
+
+                if (value === "") {
+                    showAll(data, 0);
+                    paginate(data, data.length);
+                    selectBox.addEventListener('change', function () {
+                        changeFunc(data)
+                    });
+                } else {
+                    some = data.filter(b => {
+                        return (
+                            exp.test(b.name.toLowerCase())
+                        );
+                    });
+                    arr1.push(some);
+                    console.log(arr1);
+                    showAll(arr1[0], 0);
+                    paginate(arr1[0], arr1[0].length);
+                    selectBox.addEventListener('change', function () {
+                        changeFunc(arr1[0]);
+                    });
+                }
+            }
+
+            function checkSearch() {
+                //check if there is cart in the LocalStorage
+                if (localStorage.getItem('inputValue') != null) {
+                    console.log('notEmpty');
+                    let input = document.getElementById('myinput');
+                    input.value = JSON.parse(localStorage.getItem('inputValue'));
+                    searchFunction(myJson);
+                    localStorage.removeItem('inputValue');
+                } else{
+                    console.log('Empty');
+                }
+                
+            }
+            checkSearch();
         }
 
         function addToCard() {
@@ -337,37 +407,4 @@ fetch('goods.json')
             }
         }
 
-        //search
-        let input = document.getElementById('myinput');
-        input.addEventListener("keyup", searchFunction);
-
-        function searchFunction() {
-        //     let input, filter, goodsWrapper, singleGood, h4, i;
-        //     input = document.getElementById('myinput');
-        //     filter = input.value.toUpperCase();
-        //     goodsWrapper = json;
-        //     let div = document.getElementsByClassName('single-good');
-
-        //     singleGood = goodsWrapper;
-        //     // console.log(singleGood[key]);
-        //     for (i = 0; i < singleGood.length; i++) {
-        //         h4 = singleGood[i]['name'][0];
-
-        //         if (h4.toUpperCase().indexOf(filter) > -1) {
-        //             console.log('correct');
-        //             //console.log(singleGood[i]);
-        //             // div.style.display = "";
-        //             //singleGood[i].style.display = "";
-        //         }
-
-        //         else {
-        //             //let div = document.getElementsByClassName('single-good');
-        //             // div.style.display = "none";
-        //             console.log('no correct');
-        //             // console.log(singleGood[i]);
-        //             // singleGood[i].style.display = 'none';
-        //         }
-        //     }
-        //     //singleGood = goodsWrapper.getElementsByClassName('single-good');
-        }
     })
