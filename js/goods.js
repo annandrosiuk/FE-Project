@@ -12,12 +12,12 @@ fetch('goods.json')
         function loadGoods() {
             const myJson = json;
             let input = document.getElementById('myinput');
-            
+
             input.addEventListener("keyup", function () {
                 searchFunction(myJson);
             });
-            
-            
+
+
 
             //---------------------FILTER ITEMS (9 per page)
             const filterItems = (json, pageId, item, itemsPerPage = 9) =>
@@ -369,6 +369,13 @@ fetch('goods.json')
                     selectBox.addEventListener('change', function () {
                         changeFunc(arr1[0]);
                     });
+
+                    if (arr1 == '') {
+                        console.log('enpty');
+                        let out = '';
+                        out += '<h5>Sorry, your search did not match any products. Please try again.</h5>';
+                        $('#goods').html(out);
+                    }
                 }
             }
 
@@ -380,10 +387,10 @@ fetch('goods.json')
                     input.value = JSON.parse(localStorage.getItem('inputValue'));
                     searchFunction(myJson);
                     localStorage.removeItem('inputValue');
-                } else{
+                } else {
                     console.log('Empty');
                 }
-                
+
             }
             checkSearch();
         }

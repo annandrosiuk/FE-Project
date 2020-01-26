@@ -119,7 +119,7 @@
     }
   }
 
-  .search-bar {
+  .search {
     @include dis-flex(flex-start, center);
     input {
       width: 100%;
