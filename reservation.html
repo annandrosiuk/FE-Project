@@ -94,7 +94,46 @@
     </div>
   </section>
 
+  <!-- Reservation Section -->
+  <section class="reservation-section">
+    <div class="container">
+      <!-- title our menu -->
+      <div class="wrap-title">
+        <h6>reservation</h6>
+        <h2>Book a table</h2>
+      </div>
 
+      <div class="form-wrapper">
+        <form class="form" method="post">
+          <div class="input-wrapper">
+            <input name="name" class="form-input" id="form-date" type="date" required>
+            <input name="name" class="form-input" id="form-name" placeholder="Your name" type="text" required>
+          </div>
+
+          <div class="input-wrapper">
+            <input name="time" class="form-input" id="form-time" type="time" min="09:00" max="22:00" required>
+            <input name="email" class="form-input" id="form-email" placeholder="Your email" type="email" required>
+          </div>
+
+          <input name="phone" class="form-input" id="form-tel" placeholder="Your phone" type="tel" required>
+
+          <textarea name="message" class="form-textarea" id="form-message" placeholder="Your message" rows="7"
+            minlength="15" required></textarea>
+
+          <button id="showMore" type="button" class="btnDis " value="Submit" disabled>
+            <span class="href-to italic">Show tables</span>
+          </button>
+        </form>
+      </div>
+
+      <div class="wrapper hidden" id="wrapper">
+        <div class="tables-wrapper" id="tables-wrapper"></div>
+        <button id="reserve" type="submit" class="form-btn" value="Reserve"><a href="check-out.html">Reserve</a>
+        </button>
+      </div>
+
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer class="footer">
@@ -169,6 +208,7 @@
             <i class="icon-keyboard_arrow_up"></i>
         </span>
     </div> -->
+  <script src="js/reservation.js"></script>
 </body>
 
 </html>

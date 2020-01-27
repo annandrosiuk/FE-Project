@@ -96,7 +96,6 @@ function SaveCartToLS() {
     localStorage.setItem('cart', JSON.stringify(cart));
 }
 
-
 //disable/enable btn submit
 const inputName = document.getElementById('form-username');
 const inputNum = document.getElementById('form-number');

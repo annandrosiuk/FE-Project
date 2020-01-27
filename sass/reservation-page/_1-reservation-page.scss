@@ -1,3 +1,83 @@
 .reservation-banner-wrapper {
   background-image: url("../img/main1.jpg");
 }
+
+.reservation-section {
+  width: 100%;
+  @include flex-center;
+  //margin: 0 0 10rem 0;
+
+  .container {
+    @include flex-center;
+    flex-direction: column;
+  }
+
+  .form-wrapper {
+    width: 100%;
+    @include flex-center;
+
+    .form {
+      width: 70%;
+      @include flex-center;
+      flex-direction: column;
+
+      .input-wrapper {
+        width: 99%;
+        @include dis-flex(space-between, center);
+
+        .form-input {
+          width: 46%;
+        }
+      }
+
+      .btnDis {
+        cursor: default;
+        &:disabled {
+          opacity: 0.3;
+
+          a {
+            cursor: default;
+            color: $black;
+
+            &:hover {
+              cursor: default;
+            }
+          }
+        }
+      }
+
+      .href-to {
+        margin: 2rem 0;
+        font-size: $f18;
+      }
+    }
+  }
+}
+
+.wrapper {
+  width: 60%;
+  @include flex-center;
+
+  .tables-wrapper {
+    margin: 5rem 0;
+    width: 100%;
+    @include dis-flex(center, center);
+    flex-wrap: wrap;
+
+    .single-table {
+      width: 10rem;
+      margin: 0 2rem 1rem 0;
+      height: 10rem;
+      background-color: $green;
+      border-radius: 50%;
+      @include flex-center;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .not-available {
+      background-color: $light;
+      cursor: default;
+    }
+  }
+}
