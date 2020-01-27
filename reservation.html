@@ -4,12 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <title>Reservation</title>
-  <meta http-equiv="Content-Type" content="text/html" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="img/icons/home-boxed-logo.png" />
   <link rel="stylesheet" href="css/main.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="js/main.js"></script>
 </head>
 
 <body>
@@ -106,13 +105,13 @@
       <div class="form-wrapper">
         <form class="form" method="post">
           <div class="input-wrapper">
-            <input name="name" class="form-input" id="form-date" type="date" required>
             <input name="name" class="form-input" id="form-name" placeholder="Your name" type="text" required>
+            <input name="email" class="form-input" id="form-email" placeholder="Your email" type="email" required>
           </div>
 
           <div class="input-wrapper">
+            <input name="name" class="form-input" id="form-date" type="date" required>
             <input name="time" class="form-input" id="form-time" type="time" min="09:00" max="22:00" required>
-            <input name="email" class="form-input" id="form-email" placeholder="Your email" type="email" required>
           </div>
 
           <input name="phone" class="form-input" id="form-tel" placeholder="Your phone" type="tel" required>
@@ -120,15 +119,15 @@
           <textarea name="message" class="form-textarea" id="form-message" placeholder="Your message" rows="7"
             minlength="15" required></textarea>
 
-          <button id="showMore" type="button" class="btnDis " value="Submit" disabled>
-            <span class="href-to italic">Show tables</span>
+          <button id="showMore" type="button" class="btnDis form-btn " value="Submit">
+            <span class="italic">Show tables</span>
           </button>
         </form>
       </div>
 
       <div class="wrapper hidden" id="wrapper">
         <div class="tables-wrapper" id="tables-wrapper"></div>
-        <button id="reserve" type="submit" class="form-btn" value="Reserve"><a href="check-out.html">Reserve</a>
+        <button id="reserve" type="submit" class="form-btn" value="Reserve"><span>Reserve</span>
         </button>
       </div>
 
@@ -208,6 +207,7 @@
             <i class="icon-keyboard_arrow_up"></i>
         </span>
     </div> -->
+  <script src="js/main.js"></script>
   <script src="js/reservation.js"></script>
 </body>
 

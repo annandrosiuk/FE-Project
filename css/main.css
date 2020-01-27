@@ -466,7 +466,15 @@ body {
   display: none; }
 
 .show {
-  display: block; }
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column; }
 
 .wrap-title {
   text-align: center;
@@ -833,16 +841,23 @@ body {
     -webkit-box-align: center;
     -webkit-align-items: center;
         -ms-flex-align: center;
-            align-items: center; }
+            align-items: center;
+    background: #222222; }
     .search input {
       width: 100%;
       -webkit-border-radius: 0rem;
-              border-radius: 0rem; }
+              border-radius: 0rem;
+      background: #222222;
+      border: 1px solid #222222;
+      font-size: 1.8rem; }
     .search button {
       width: 2.5rem;
       -webkit-border-radius: 0;
               border-radius: 0;
-      height: 2.5rem; } }
+      height: 2.5rem;
+      color: #ffffff;
+      border: 1px solid #222222;
+      background: #222222; } }
 
 .slider-section {
   height: 100vh;
@@ -1827,17 +1842,16 @@ body {
         cursor: default; }
         .reservation-section .form-wrapper .form .btnDis:disabled {
           opacity: 0.3; }
-          .reservation-section .form-wrapper .form .btnDis:disabled a {
-            cursor: default;
-            color: #000000; }
-            .reservation-section .form-wrapper .form .btnDis:disabled a:hover {
+          .reservation-section .form-wrapper .form .btnDis:disabled span {
+            cursor: default; }
+            .reservation-section .form-wrapper .form .btnDis:disabled span:hover {
               cursor: default; }
       .reservation-section .form-wrapper .form .href-to {
         margin: 2rem 0;
         font-size: 1.8rem; }
 
 .wrapper {
-  width: 60%;
+  width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1852,7 +1866,7 @@ body {
           align-items: center; }
   .wrapper .tables-wrapper {
     margin: 5rem 0;
-    width: 100%;
+    width: 60%;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -1872,7 +1886,7 @@ body {
       width: 10rem;
       margin: 0 2rem 1rem 0;
       height: 10rem;
-      background-color: #42c58a;
+      background-color: #79c45f;
       -webkit-border-radius: 50%;
               border-radius: 50%;
       display: -webkit-box;
@@ -1893,9 +1907,52 @@ body {
           -ms-flex-direction: column;
               flex-direction: column;
       cursor: pointer; }
+      .wrapper .tables-wrapper .single-table h4 {
+        color: #ffffff; }
+      .wrapper .tables-wrapper .single-table p {
+        color: #ededed;
+        font-style: italic; }
     .wrapper .tables-wrapper .not-available {
       background-color: #ededed;
       cursor: default; }
+      .wrapper .tables-wrapper .not-available h4,
+      .wrapper .tables-wrapper .not-available p {
+        color: #808080; }
+  .wrapper .form-btn {
+    margin: 0 0 10rem 0 !important; }
+
+@media (max-width: 768px) {
+  .reservation-section .form-wrapper .form {
+    width: 90%; }
+    .reservation-section .form-wrapper .form .input-wrapper {
+      width: 96%; }
+      .reservation-section .form-wrapper .form .input-wrapper .form-input {
+        width: 45%; }
+  .wrapper .tables-wrapper {
+    width: 70%; } }
+
+@media (max-width: 420px) {
+  .reservation-section .form-wrapper .form {
+    width: 100%; }
+    .reservation-section .form-wrapper .form .input-wrapper {
+      width: 99%;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: row;
+          -ms-flex-direction: row;
+              flex-direction: row;
+      -webkit-flex-wrap: wrap;
+          -ms-flex-wrap: wrap;
+              flex-wrap: wrap; }
+      .reservation-section .form-wrapper .form .input-wrapper .form-input {
+        width: 100%; }
+  .reservation-section .form-wrapper .btnDis {
+    width: 50%; }
+  .wrapper .tables-wrapper {
+    width: 100%; }
+    .wrapper .tables-wrapper .single-table {
+      width: 8rem;
+      height: 8rem; } }
 
 .about-banner-wrapper {
   background-image: url("../img/main2.jpg"); }
@@ -4150,7 +4207,15 @@ body {
   display: none; }
 
 .show {
-  display: block; }
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column; }
 
 .wrap-title {
   text-align: center;
@@ -4517,16 +4582,23 @@ body {
     -webkit-box-align: center;
     -webkit-align-items: center;
         -ms-flex-align: center;
-            align-items: center; }
+            align-items: center;
+    background: #222222; }
     .search input {
       width: 100%;
       -webkit-border-radius: 0rem;
-              border-radius: 0rem; }
+              border-radius: 0rem;
+      background: #222222;
+      border: 1px solid #222222;
+      font-size: 1.8rem; }
     .search button {
       width: 2.5rem;
       -webkit-border-radius: 0;
               border-radius: 0;
-      height: 2.5rem; } }
+      height: 2.5rem;
+      color: #ffffff;
+      border: 1px solid #222222;
+      background: #222222; } }
 
 .slider-section {
   height: 100vh;

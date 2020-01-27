@@ -5,7 +5,6 @@
 .reservation-section {
   width: 100%;
   @include flex-center;
-  //margin: 0 0 10rem 0;
 
   .container {
     @include flex-center;
@@ -32,12 +31,12 @@
 
       .btnDis {
         cursor: default;
+
         &:disabled {
           opacity: 0.3;
 
-          a {
+          span {
             cursor: default;
-            color: $black;
 
             &:hover {
               cursor: default;
@@ -55,13 +54,13 @@
 }
 
 .wrapper {
-  width: 60%;
+  width: 100%;
   @include flex-center;
 
   .tables-wrapper {
     margin: 5rem 0;
-    width: 100%;
-    @include dis-flex(center, center);
+    width: 60%;
+    @include flex-center;
     flex-wrap: wrap;
 
     .single-table {
@@ -73,11 +72,78 @@
       @include flex-center;
       flex-direction: column;
       cursor: pointer;
+
+      h4 {
+        color: $white;
+      }
+
+      p {
+        color: $light;
+        font-style: italic;
+      }
     }
 
     .not-available {
       background-color: $light;
       cursor: default;
+      h4,
+      p {
+        color: $light-grey;
+      }
+    }
+  }
+
+  .form-btn {
+    margin: 0 0 10rem 0 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .reservation-section .form-wrapper {
+    .form {
+      width: 90%;
+
+      .input-wrapper {
+        width: 96%;
+
+        .form-input {
+          width: 45%;
+        }
+      }
+    }
+  }
+
+  .wrapper .tables-wrapper {
+    width: 70%;
+  }
+}
+
+@media (max-width: 420px) {
+  .reservation-section .form-wrapper {
+    .form {
+      width: 100%;
+
+      .input-wrapper {
+        width: 99%;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        .form-input {
+          width: 100%;
+        }
+      }
+    }
+    .btnDis {
+      width: 50%;
+    }
+  }
+
+  .wrapper .tables-wrapper {
+    width: 100%;
+
+    .single-table {
+      width: 8rem;
+      height: 8rem;
     }
   }
 }

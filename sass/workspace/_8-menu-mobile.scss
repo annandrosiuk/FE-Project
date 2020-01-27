@@ -121,15 +121,23 @@
 
   .search {
     @include dis-flex(flex-start, center);
+    background: $light-black;
+
     input {
       width: 100%;
       border-radius: 0rem;
+      background: $light-black;
+      border: 1px solid $light-black;
+      font-size: $f18;
     }
 
     button {
       width: 2.5rem;
       border-radius: 0;
       height: 2.5rem;
+      color: $white;
+      border: 1px solid $light-black;
+      background: $light-black;
     }
   }
 }

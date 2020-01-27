@@ -14,7 +14,8 @@ body {
 }
 
 .show {
-  display: block;
+  display: flex;
+  flex-direction: column;
 }
 
 // ---------- Wrap for titles ---------- //

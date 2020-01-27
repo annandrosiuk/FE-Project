@@ -27,8 +27,10 @@ fetch('tables.json')
         }
 
         function classChange() {
-            this.style.backgroundColor = "#ededed";
-            this.style.cursor = "default";
+            console.log(this.getAttribute('data-art'));
+            if(!this.classList.contains('not-available')){
+                this.classList.add('not-available');
+            }
         }
 
         function setDate() {
@@ -80,7 +82,6 @@ fetch('tables.json')
             let minutes = inputTime.slice(2, 5);
             let countTime = hours + 1;
             let endTime = countTime.toString() + minutes;
-            // console.log(inputDay);
 
             let local = JSON.parse(localStorage.getItem('tables'));
             const wrapper = document.getElementById('tables-wrapper');
@@ -108,11 +109,11 @@ fetch('tables.json')
         let reserveBtn = document.getElementById('reserve');
         reserveBtn.addEventListener('click', function () {
             addToLS();
+            location.href = "check-out.html";
         });
 
         showTables.addEventListener('click', function () {
             let wrapper = document.getElementById('wrapper');
-            let showTables = document.getElementById('showMore');
             wrapper.classList.toggle('show');
 
             if (wrapper.classList.contains('show')) {
