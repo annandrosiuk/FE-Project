@@ -92,12 +92,13 @@ fetch('tables.json')
 
             for (let i = 0; i < myJson.length; i++) {
                 if (myJson[i].isAvailable == false) {
-                    console.log(myJson[i].id);
-                    console.log(wrapper.children[i].getAttribute('data-art'));
-                    if (myJson[i].id == wrapper.children[i].getAttribute('data-art')) {
-                        items = JSON.parse(localStorage.getItem(listId)) || [];
-                        items.push(myJson[i])
-                        console.log(items);
+                    if (wrapper.children[i].classList.contains('reserved')) {
+                        if (myJson[i].id == wrapper.children[i].getAttribute('data-art')) {
+
+                            items = JSON.parse(localStorage.getItem(listId)) || [];
+                            items.push(myJson[i])
+                            console.log(items);
+                        }
                     }
                 }
             }

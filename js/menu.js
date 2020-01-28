@@ -9,7 +9,7 @@ let dessertWrapper = document.getElementById('dessert-wrapper');
 let drinksWrapper = document.getElementById('drinks-wrapper');
 
 //Show lunch menu 
-lunchBtn.addEventListener('click', function(){
+lunchBtn.addEventListener('click', function () {
     lunchWrapper.classList.remove('hidden');
     dinnerWrapper.classList.add('hidden');
     dessertWrapper.classList.add('hidden');
@@ -24,7 +24,7 @@ lunchBtn.addEventListener('click', function(){
 });
 
 //Show dinner menu
-dinnerBtn.addEventListener('click', function(){
+dinnerBtn.addEventListener('click', function () {
     dinnerWrapper.classList.remove('hidden');
     lunchWrapper.classList.add('hidden');
     dessertWrapper.classList.add('hidden');
@@ -39,7 +39,7 @@ dinnerBtn.addEventListener('click', function(){
 });
 
 //Show dessert menu
-dessertBtn.addEventListener('click', function(){
+dessertBtn.addEventListener('click', function () {
     dinnerWrapper.classList.add('hidden');
     lunchWrapper.classList.add('hidden');
     dessertWrapper.classList.remove('hidden');
@@ -54,7 +54,7 @@ dessertBtn.addEventListener('click', function(){
 });
 
 //Show drinks menu
-drinksBtn.addEventListener('click', function(){
+drinksBtn.addEventListener('click', function () {
     dinnerWrapper.classList.add('hidden');
     lunchWrapper.classList.add('hidden');
     dessertWrapper.classList.add('hidden');
@@ -66,18 +66,4 @@ drinksBtn.addEventListener('click', function(){
     dinnerBtn.classList.remove('active');
     dessertBtn.classList.remove('active');
     drinksBtn.classList.add('active');
-});
-
-var windowH = $(window).height()/2;
-
-$(window).on('scroll',function(){
-    if ($(this).scrollTop() > windowH) {
-        $("#myBtn").css('display','flex');
-    } else {
-        $("#myBtn").css('display','none');
-    }
-});
-
-$('#myBtn').on("click", function(){
-    $('html, body').animate({scrollTop: 0}, 300);
 });

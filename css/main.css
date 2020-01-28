@@ -517,7 +517,10 @@ body {
 
 /*=================================================================== Button Back to top ===*/
 .btn-back-to-top {
-  display: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   position: fixed;
   width: 50px;
   height: 35px;
@@ -538,22 +541,6 @@ body {
   -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s; }
-
-.symbol-btn-back-to-top {
-  font-size: 30px;
-  color: white;
-  line-height: 1em; }
-
-.btn-back-to-top:hover {
-  height: 48px;
-  opacity: 0.8;
-  cursor: pointer;
-  background-color: #e52233; }
-
-@media (max-width: 576px) {
-  .btn-back-to-top {
-    bottom: 15px;
-    right: 20px; } }
 
 .wrap-header {
   position: absolute;
@@ -4260,7 +4247,10 @@ body {
 
 /*=================================================================== Button Back to top ===*/
 .btn-back-to-top {
-  display: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   position: fixed;
   width: 50px;
   height: 35px;
@@ -4281,22 +4271,6 @@ body {
   -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s; }
-
-.symbol-btn-back-to-top {
-  font-size: 30px;
-  color: white;
-  line-height: 1em; }
-
-.btn-back-to-top:hover {
-  height: 48px;
-  opacity: 0.8;
-  cursor: pointer;
-  background-color: #e52233; }
-
-@media (max-width: 576px) {
-  .btn-back-to-top {
-    bottom: 15px;
-    right: 20px; } }
 
 .wrap-header {
   position: absolute;
