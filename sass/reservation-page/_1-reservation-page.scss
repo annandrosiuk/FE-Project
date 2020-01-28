@@ -83,9 +83,19 @@
       }
     }
 
+    .reserved{
+      // opacity: .5;
+      background-color: $red;
+      // cursor: not-allowed;
+      // h4,
+      // p {
+      //   color: $light-grey;
+      // }
+    }
+
     .not-available {
       background-color: $light;
-      cursor: default;
+      cursor: not-allowed;
       h4,
       p {
         color: $light-grey;

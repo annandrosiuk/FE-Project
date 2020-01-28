@@ -1,6 +1,12 @@
 [
     {
         "id": 0,
+        "user": {
+            "name": "",
+            "email": "",
+            "number": "",
+            "additional": ""
+        },
         "name": "Table 1",
         "capacity": 5,
         "isAvailable": true,
@@ -13,6 +19,12 @@
     },
     {
         "id": 1,
+        "user": {
+            "name": "",
+            "email": "",
+            "number": "",
+            "additional": ""
+        },
         "name": "Table 2",
         "capacity": 5,
         "isAvailable": true,
@@ -25,6 +37,12 @@
     },
     {
         "id": 2,
+        "user": {
+            "name": "",
+            "email": "",
+            "number": "",
+            "additional": ""
+        },
         "name": "Table 3",
         "capacity": 5,
         "isAvailable": true,
@@ -37,6 +55,12 @@
     },
     {
         "id": 3,
+        "user": {
+            "name": "",
+            "email": "",
+            "number": "",
+            "additional": ""
+        },
         "name": "Table 4",
         "capacity": 6,
         "isAvailable": true,
@@ -49,6 +73,12 @@
     },
     {
         "id": 4,
+        "user": {
+            "name": "",
+            "email": "",
+            "number": "",
+            "additional": ""
+        },
         "name": "Table 5",
         "capacity": 7,
         "isAvailable": true,
@@ -61,6 +91,12 @@
     },
     {
         "id": 5,
+        "user": {
+            "name": "",
+            "email": "",
+            "number": "",
+            "additional": ""
+        },
         "name": "Table 6",
         "capacity": 2,
         "isAvailable": true,
@@ -73,6 +109,12 @@
     },
     {
         "id": 6,
+        "user": {
+            "name": "",
+            "email": "",
+            "number": "",
+            "additional": ""
+        },
         "name": "Table 7",
         "capacity": 2,
         "isAvailable": true,
@@ -85,6 +127,12 @@
     },
     {
         "id": 7,
+        "user": {
+            "name": "",
+            "email": "",
+            "number": "",
+            "additional": ""
+        },
         "name": "Table 8",
         "capacity": 3,
         "isAvailable": true,
@@ -97,6 +145,12 @@
     },
     {
         "id": 8,
+        "user": {
+            "name": "",
+            "email": "",
+            "number": "",
+            "additional": ""
+        },
         "name": "Table 9",
         "capacity": 5,
         "isAvailable": true,
@@ -109,6 +163,12 @@
     },
     {
         "id": 9,
+        "user": {
+            "name": "",
+            "email": "",
+            "number": "",
+            "additional": ""
+        },
         "name": "Table 10",
         "capacity": 4,
         "isAvailable": true,

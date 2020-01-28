@@ -1912,9 +1912,11 @@ body {
       .wrapper .tables-wrapper .single-table p {
         color: #ededed;
         font-style: italic; }
+    .wrapper .tables-wrapper .reserved {
+      background-color: #e74c3c; }
     .wrapper .tables-wrapper .not-available {
       background-color: #ededed;
-      cursor: default; }
+      cursor: not-allowed; }
       .wrapper .tables-wrapper .not-available h4,
       .wrapper .tables-wrapper .not-available p {
         color: #808080; }
