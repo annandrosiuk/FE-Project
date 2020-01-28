@@ -51,23 +51,14 @@ fetch('goods.json')
 
             //Filtration onclick
             $('#beer').on('click', filterGoods);
-            $('#beer').on('click', function () { input.value = ''; });
             $('#burger').on('click', filterGoods);
-            $('#burger').on('click', function () { input.value = ''; });
             $('#steak').on('click', filterGoods);
-            $('#steak').on('click', function () { input.value = ''; });
             $('#drink').on('click', filterGoods);
-            $('#drink').on('click', function () { input.value = ''; });
             $('#wok').on('click', filterGoods);
-            $('#wok').on('click', function () { input.value = ''; });
             $('#desert').on('click', filterGoods);
-            $('#desert').on('click', function () { input.value = ''; });
             $('#soup').on('click', filterGoods);
-            $('#soup').on('click', function () { input.value = ''; });
             $('#snack').on('click', filterGoods);
-            $('#snack').on('click', function () { input.value = ''; });
             $('#salad').on('click', filterGoods);
-            $('#salad').on('click', function () { input.value = ''; });
             $('#all').on('click', function () {
                 showAll(myJson, 0);
                 paginate(myJson, myJson.length);
@@ -334,6 +325,7 @@ fetch('goods.json')
 
                 showAll(arr, 0);
                 paginate(arr, arr.length);
+                input.value = '';
                 selectBox.addEventListener('change', function () {
                     changeFunc(arr)
                 });
