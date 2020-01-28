@@ -60,20 +60,32 @@ body {
 }
 /*=================================================================== Button Back to top ===*/
 .btn-back-to-top {
-  display: flex;
+  @include flex-center;
   position: fixed;
-  width: 50px;
-  height: 35px;
-  bottom: 45px;
-  right: 50px;
-  background-color: black;
-  opacity: 0.5;
-  justify-content: center;
-  align-items: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  bottom: 4.5rem;
+  right: 5rem;
+  background-color: rgba($color: $light-black, $alpha: 0.7);
   z-index: 100000;
   transition: all 0.4s;
-  -webkit-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  -moz-transition: all 0.4s;
+  display: none;
+
+  i {
+    transform: rotate(180deg);
+    color: $light;
+    font-size: $f24;
+  }
+
+  &:hover {
+    background-color: rgba($color: $red, $alpha: 0.7);
+  }
 }
 
+@media screen and (max-width: 420px) {
+  .btn-back-to-top {
+    bottom: 2rem;
+    right: 1.5rem;
+  }
+}

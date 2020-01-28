@@ -12,7 +12,7 @@
 </head>
 
 <body>
-  <header>
+  <header id="top">
     <!-- Header Desktop -->
     <div class="wrap-header" id="wrap_header">
       <!-- Logo -->
@@ -106,14 +106,18 @@
       <div class="form-wrapper">
         <form class="form" method="post">
           <div class="input-wrapper">
-            <input name="name" class="form-input" id="form-name" placeholder="Your name" value="Ann" type="text" required>
-            <input name="email" class="form-input" id="form-email" placeholder="Your email" value="em@email.com" type="email" required>
+            <input name="name" class="form-input" id="form-name" placeholder="Your name" value="Ann" type="text"
+              required>
+            <input name="email" class="form-input" id="form-email" placeholder="Your email" value="em@email.com"
+              type="email" required>
           </div>
 
           <div class="input-wrapper">
-            <input name="name" class="form-input" id="form-date" min="2020-01-26" value="2020-01-30" type="date" required>
+            <input name="name" class="form-input" id="form-date" min="2020-01-26" value="2020-01-30" type="date"
+              required>
             <!--  <label for="appt-time">Choose an appointment time (opening hours 12:00 to 18:00): </label>  -->
-            <input name="time" class="form-input" id="form-time" type="time" min="09:00" max="22:00" value="09:00" required>
+            <input name="time" class="form-input" id="form-time" type="time" min="09:00" max="22:00" value="09:00"
+              required>
           </div>
 
           <input name="phone" class="form-input" id="form-tel" placeholder="Your phone" type="tel" required>
@@ -204,11 +208,9 @@
   </footer>
 
   <!-- Back to top -->
-  <!-- <div class="btn-back-to-top" id="myBtn">
-        <span class="symbol-btn-back-to-top">
-            <i class="icon-keyboard_arrow_up"></i>
-        </span>
-    </div> -->
+  <div class="btn-back-to-top" id="topBtn">
+    <i class="icon-keyboard_arrow_down"></i>
+  </div>
   <script src="js/main.js"></script>
   <script src="js/reservation.js"></script>
 </body>

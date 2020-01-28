@@ -521,13 +521,6 @@ body {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  position: fixed;
-  width: 50px;
-  height: 35px;
-  bottom: 45px;
-  right: 50px;
-  background-color: black;
-  opacity: 0.5;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
@@ -536,11 +529,32 @@ body {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
+  position: fixed;
+  width: 4rem;
+  height: 4rem;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+  bottom: 4.5rem;
+  right: 5rem;
+  background-color: rgba(34, 34, 34, 0.7);
   z-index: 100000;
-  transition: all 0.4s;
   -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
-  -moz-transition: all 0.4s; }
+  transition: all 0.4s;
+  display: none; }
+  .btn-back-to-top i {
+    -webkit-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+            transform: rotate(180deg);
+    color: #ededed;
+    font-size: 2.4rem; }
+  .btn-back-to-top:hover {
+    background-color: rgba(231, 76, 60, 0.7); }
+
+@media screen and (max-width: 420px) {
+  .btn-back-to-top {
+    bottom: 2rem;
+    right: 1.5rem; } }
 
 .wrap-header {
   position: absolute;
@@ -4251,13 +4265,6 @@ body {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  position: fixed;
-  width: 50px;
-  height: 35px;
-  bottom: 45px;
-  right: 50px;
-  background-color: black;
-  opacity: 0.5;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
@@ -4266,11 +4273,32 @@ body {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
+  position: fixed;
+  width: 4rem;
+  height: 4rem;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+  bottom: 4.5rem;
+  right: 5rem;
+  background-color: rgba(34, 34, 34, 0.7);
   z-index: 100000;
-  transition: all 0.4s;
   -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
-  -moz-transition: all 0.4s; }
+  transition: all 0.4s;
+  display: none; }
+  .btn-back-to-top i {
+    -webkit-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+            transform: rotate(180deg);
+    color: #ededed;
+    font-size: 2.4rem; }
+  .btn-back-to-top:hover {
+    background-color: rgba(231, 76, 60, 0.7); }
+
+@media screen and (max-width: 420px) {
+  .btn-back-to-top {
+    bottom: 2rem;
+    right: 1.5rem; } }
 
 .wrap-header {
   position: absolute;
