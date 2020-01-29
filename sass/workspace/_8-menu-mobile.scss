@@ -104,9 +104,14 @@
       max-height: 100vh;
     }
 
-    ul a {
-      display: block;
-      padding: 0.8rem 1.6rem;
+    ul {
+      .m-drop-down a {
+        @include dis-flex(flex-start, center);
+      }
+      a {
+        display: block;
+        padding: 0.8rem 1.6rem;
+      }
     }
 
     ul ul {
