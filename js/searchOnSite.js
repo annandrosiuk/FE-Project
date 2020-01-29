@@ -1,7 +1,7 @@
-let inputSearch = document.getElementById('searchInput');
-let goTo = document.getElementById('goTo');
-let inputSearchMob = document.getElementById('searchInputMob');
-let goToMob = document.getElementById('goToMob');
+const inputSearch = document.getElementById('searchInput'),
+    goTo = document.getElementById('goTo'),
+    inputSearchMob = document.getElementById('searchInputMob'),
+    goToMob = document.getElementById('goToMob');
 
 goTo.addEventListener('click', search);
 goToMob.addEventListener('click', searchMob);

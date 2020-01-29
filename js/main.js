@@ -39,8 +39,8 @@ window.addEventListener('click', function (e) {
 
 window.onscroll = function () { myFunction() };
 function myFunction() {
-	let topBtn = document.getElementById('topBtn');
-	var y = document.documentElement.scrollTop;
+	const topBtn = document.getElementById('topBtn');
+	const y = document.documentElement.scrollTop;
 	if (y > 200) {
 		topBtn.style.display = "flex";
 	} else {
@@ -49,11 +49,11 @@ function myFunction() {
 }
 
 function scrollToTop() {
-	let top = document.getElementById('top');
+	const top = document.getElementById('top');
 	top.scrollIntoView({
 		behavior: "smooth"
 	});
 }
 
-let topBtn = document.getElementById('topBtn');
+const topBtn = document.getElementById('topBtn');
 topBtn.addEventListener('click', scrollToTop);

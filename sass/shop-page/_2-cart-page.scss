@@ -27,83 +27,58 @@
     }
   }
 }
-
-.table-shopping-cart {
+.grid-title {
   width: 100%;
+  display: grid;
+  margin: 10rem 0 0 0;
+  grid-template-columns: 2fr 3fr 2fr 2fr 2fr 1fr;
   text-align: center;
-  margin: 10rem 0 5rem 0;
+  background-color: $light;
+
+  span {
+    padding: 2rem 0rem;
+    font-family: $ltb;
+    font-size: $f14;
+    color: $dark-grey;
+    text-transform: uppercase;
+  }
+}
+
+.grid {
+  width: 100%;
+  display: grid;
+  margin: 0rem 0 5rem 0;
+  grid-template-columns: 2fr 3fr 2fr 2fr 2fr 1fr;
   border: 1px solid $light;
+  text-align: center;
 
-  .table_head {
-    background-color: $light;
-
-    th {
-      font-family: $ltb;
-      font-size: $f14;
-      color: $dark-grey;
-      text-transform: uppercase;
-      padding: 1.5rem 0;
-    }
-  }
-
-  tr {
+  span {
+    padding: 2rem 0rem;
     border-bottom: 1px solid $light;
-  }
-
-  td {
+    @include flex-center;
     font-family: $lt;
     font-size: $f14;
     color: $dark-grey;
-    padding: 2rem 0;
-  }
+    text-transform: uppercase;
 
-  .col-1 {
-    width: 17%;
-  }
+    .image-cart {
+      width: 10rem;
+      height: 10rem;
+      background-size: cover;
+    }
 
-  .col-2 {
-    width: 28%;
-  }
-
-  .col-3 {
-    width: 16%;
-  }
-
-  .col-4 {
-    width: 17%;
-  }
-
-  .col-5 {
-    width: 15%;
-  }
-
-  .col-6 {
-    width: 7%;
-  }
-
-  .price {
-    width: 100%;
-    @include dis-flex(center, center);
-    margin: 4rem 0;
-
-    p {
-      padding: 0 1rem;
+    button {
+      border: 1px solid $light;
+      border-radius: 20%;
+      background-color: $yellow;
+      color: $white;
+      font-size: $f18;
+      outline: none;
     }
   }
 
-  .image-cart {
-    width: 10rem;
-    height: 10rem;
-    background-size: cover;
-  }
-
-  button {
-    border: 1px solid $light;
-    border-radius: 20%;
-    background-color: $yellow;
-    color: $white;
-    font-size: $f18;
-    outline: none;
+  .price p {
+    padding: 0 1rem;
   }
 }
 
@@ -185,35 +160,21 @@
     }
   }
 
-  .table-shopping-cart {
-    margin: 5rem 0;
+  .grid,
+  .grid-title {
+    grid-template-columns: 3fr 2fr 2fr 2fr 1fr;
 
-    .table_head {
-      th {
-        font-size: $f12;
-        padding: 1.5rem 0;
-      }
-    }
-
-    td {
+    span {
       font-size: $f12;
-      padding: 0;
     }
 
-    .col-1 {
+    .price p {
+      padding: 0 0.3rem;
+    }
+
+    .grid-image,
+    .grid-none {
       display: none;
-    }
-
-    .price {
-      margin: 4rem 0;
-
-      p {
-        padding: 0 0.2rem;
-      }
-    }
-
-    button {
-      font-size: $f14;
     }
   }
 

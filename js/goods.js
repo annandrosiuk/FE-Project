@@ -11,7 +11,7 @@ fetch('goods.json')
 
         function loadGoods() {
             const myJson = json;
-            let input = document.getElementById('myinput');
+            const input = document.getElementById('myinput');
 
             input.addEventListener("keyup", function () {
                 searchFunction(myJson);
@@ -32,18 +32,22 @@ fetch('goods.json')
                 let arr = filterItems(data, index);
                 console.log(arr);
 
-                let out = '', out1 = '';
+                const parts = [], parts1 = [];
                 for (let key in arr) {
-                    out += '<div class="single-good" data-price="' + arr[key]['cost'] + '" data-name="' + arr[key]['name'] + '" data-art="' + arr[key]['id'] + '">';
-                    out += '<img class="image" src=" ' + arr[key]['image'] + ' ">';
-                    out += '<h4>' + arr[key]['name'] + '</h4>';
-                    out += '<p>' + arr[key]['cost'] + ' &#8372;</p>';
-                    out += '<button class="add-to-cart" data-art="' + arr[key]['id'] + '">Buy</button>';
-                    out += '</div>';
+                    parts.push('<div class="single-good" data-price="' + arr[key]['cost'] + '" data-name="' + arr[key]['name'] + '" data-art="' + arr[key]['id'] + '">');
+                    parts.push('<img class="image" src=" ' + arr[key]['image'] + ' ">');
+                    parts.push('<h4>' + arr[key]['name'] + '</h4>');
+                    parts.push('<p>' + arr[key]['cost'] + ' &#8372;</p>');
+                    parts.push('<button class="add-to-cart" data-art="' + arr[key]['id'] + '">Buy</button>');
+                    parts.push('</div>');
                 }
-                out1 += '<p class="goods-count">Here`s all ' + data.length + ' delisious dishes for you.</p>';
-                $('#goods-count').html(out1);
-                $('#goods').html(out);
+                parts1.push('<p class="goods-count">Here`s all ' + data.length + ' delisious dishes for you.</p>');
+
+                const result = parts.join('');
+                const result1 = parts1.join('');
+
+                $('#goods-count').html(result1);
+                $('#goods').html(result);
                 $('button.add-to-cart').on('click', addToCard);
             }
 
@@ -186,43 +190,42 @@ fetch('goods.json')
                     pages = pagesList(a, b);
                     let brr = pages;
 
-                    let out = '';
-
+                    const parts = [];
                     if (totalItems > itemsPerPage) {
                         for (let key in brr) {
                             if (brr[key]['class'] == 'next') {
-                                out += '<div  data-text="' + brr[key]['text'] + '" data-href="' + brr[key]['link'] + '" class="single-btn ' + brr[key]['class'] + '">';
-                                out += '<a href="' + brr[key]['link'] + '" data-text="' + brr[key]['text'] + '">' + '>' + '</a>';
-                                out += '</div>';
+                                parts.push('<div  data-text="' + brr[key]['text'] + '" data-href="' + brr[key]['link'] + '" class="single-btn ' + brr[key]['class'] + '">');
+                                parts.push('<a href="' + brr[key]['link'] + '" data-text="' + brr[key]['text'] + '">' + '>' + '</a>');
+                                parts.push('</div>');
                             } if (brr[key]['class'] == 'last') {
-                                out += '<div  data-text="' + brr[key]['text'] + '" data-href="' + brr[key]['link'] + '" class="single-btn ' + brr[key]['class'] + '">';
-                                out += '<a href="' + brr[key]['link'] + '" data-text="' + brr[key]['text'] + '">' + '>>' + '</a>';
-                                out += '</div>';
+                                parts.push('<div  data-text="' + brr[key]['text'] + '" data-href="' + brr[key]['link'] + '" class="single-btn ' + brr[key]['class'] + '">');
+                                parts.push('<a href="' + brr[key]['link'] + '" data-text="' + brr[key]['text'] + '">' + '>>' + '</a>');
+                                parts.push('</div>');
                             } if (brr[key]['class'] == 'prev') {
-                                out += '<div  data-text="' + brr[key]['text'] + '" data-href="' + brr[key]['link'] + '" class="single-btn ' + brr[key]['class'] + '">';
-                                out += '<a href="' + brr[key]['link'] + '" data-text="' + brr[key]['text'] + '">' + '<' + '</a>';
-                                out += '</div>';
+                                parts.push('<div  data-text="' + brr[key]['text'] + '" data-href="' + brr[key]['link'] + '" class="single-btn ' + brr[key]['class'] + '">');
+                                parts.push('<a href="' + brr[key]['link'] + '" data-text="' + brr[key]['text'] + '">' + '<' + '</a>');
+                                parts.push('</div>');
                             } if (brr[key]['class'] == 'first') {
-                                out += '<div  data-text="' + brr[key]['text'] + '" data-href="' + brr[key]['link'] + '" class="single-btn ' + brr[key]['class'] + '">';
-                                out += '<a href="' + brr[key]['link'] + '" data-text="' + brr[key]['text'] + '">' + '<<' + '</a>';
-                                out += '</div>';
+                                parts.push('<div  data-text="' + brr[key]['text'] + '" data-href="' + brr[key]['link'] + '" class="single-btn ' + brr[key]['class'] + '">');
+                                parts.push('<a href="' + brr[key]['link'] + '" data-text="' + brr[key]['text'] + '">' + '<<' + '</a>');
+                                parts.push('</div>');
                             }
                             else if (brr[key]['class'] !== 'next' && brr[key]['class'] !== 'last' && brr[key]['class'] !== 'prev' && brr[key]['class'] !== 'first') {
-                                out += '<div  data-text="' + brr[key]['text'] + '" data-href="' + brr[key]['link'] + '" class="single-btn ' + brr[key]['class'] + '">';
-                                out += '<a href="' + brr[key]['link'] + '" data-text="' + brr[key]['text'] + '">' + brr[key]['text'] + '</a>';
-                                out += '</div>';
+                                parts.push('<div  data-text="' + brr[key]['text'] + '" data-href="' + brr[key]['link'] + '" class="single-btn ' + brr[key]['class'] + '">');
+                                parts.push('<a href="' + brr[key]['link'] + '" data-text="' + brr[key]['text'] + '">' + brr[key]['text'] + '</a>');
+                                parts.push('</div>');
                             }
                         }
                     }
-
-                    $('#pagination').html(out);
+                    const result = parts.join('');
+                    $('#pagination').html(result);
                     $('.single-btn').on('click', next);
                 }
                 showBtn(totalItems, 0);
 
                 function next(e) {
                     e.preventDefault();
-                    let articul = +$(this).attr('data-text') - 1;
+                    let articul = +this.getAttribute('data-text') - 1;
 
                     showAll(elem, articul);
                     console.log(pagesList(totalItems, articul));
@@ -246,7 +249,7 @@ fetch('goods.json')
             paginate(myJson, myJson.length);
 
             //---------------------SORT by selected options
-            let selectBox = document.getElementById("select");
+            const selectBox = document.getElementById("select");
             selectBox.addEventListener('change', function () {
                 changeFunc(myJson)
             });
@@ -363,10 +366,12 @@ fetch('goods.json')
                     });
 
                     if (arr1 == '') {
-                        console.log('enpty');
-                        let out = '';
-                        out += '<h5>Sorry, your search did not match any products. Please try again.</h5>';
-                        $('#goods').html(out);
+                        console.log('empty');
+                        const parts = [];
+                        parts.push('<h5>Sorry, your search did not match any products. Please try again.</h5>');
+
+                        const result = parts.join('');
+                        $('#goods').html(result);
                     }
                 }
             }
@@ -375,7 +380,7 @@ fetch('goods.json')
                 //check if there is cart in the LocalStorage
                 if (localStorage.getItem('inputValue') != null) {
                     console.log('notEmpty');
-                    let input = document.getElementById('myinput');
+                    const input = document.getElementById('myinput');
                     input.value = JSON.parse(localStorage.getItem('inputValue'));
                     searchFunction(myJson);
                     localStorage.removeItem('inputValue');

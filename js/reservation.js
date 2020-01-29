@@ -6,16 +6,16 @@ fetch('tables.json')
     .then(json => {
         console.log(json);
         const myJson = json;
-        let showTables = document.getElementById('showMore');
+        const showTables = document.getElementById('showMore');
         dateValid()
 
         function dateValid() {
             //check if date is valid (not yesterday...)
             const inputDate = document.getElementById('form-date');
-            var today = new Date();
-            var dd = today.getDate();
-            var mm = today.getMonth() + 1;
-            var yyyy = today.getFullYear();
+            let today = new Date();
+            let dd = today.getDate();
+            let mm = today.getMonth() + 1;
+            let yyyy = today.getFullYear();
             if (dd < 10) {
                 dd = '0' + dd
             }
@@ -29,14 +29,16 @@ fetch('tables.json')
 
         function loadGoods() {
             //load tables onpage
-            let out = '';
+            const parts = [];
             for (let key in myJson) {
-                out += '<div class="single-table" id="table-' + myJson[key]['id'] + '"  data-name="' + myJson[key]['name'] + '" data-art="' + myJson[key]['id'] + '">';
-                out += '<h4>' + myJson[key]['name'] + '</h4>';
-                out += '<p>' + myJson[key]['location'] + '</p>';
-                out += '</div>';
+                parts.push('<div class="single-table" id="table-' + myJson[key]['id'] + '"  data-name="' + myJson[key]['name'] + '" data-art="' + myJson[key]['id'] + '">');
+                parts.push('<h4>' + myJson[key]['name'] + '</h4>');
+                parts.push('<p>' + myJson[key]['location'] + '</p>');
+                parts.push('</div>');
             }
-            $('#tables-wrapper').html(out);
+            const result = parts.join('');
+
+            $('#tables-wrapper').html(result);
         }
 
         function classChange() {
@@ -53,17 +55,17 @@ fetch('tables.json')
 
         function setDate() {
             //get data from inputs and push it to arr
-            let inputDay = document.getElementById('form-date').value;
-            let inputTime = document.getElementById('form-time').value;
-            let hours = +inputTime.slice(0, 2);
-            let minutes = inputTime.slice(2, 5);
-            let countTime = hours + 1;
-            let endTime = countTime.toString() + minutes;
+            const inputDay = document.getElementById('form-date').value,
+                inputTime = document.getElementById('form-time').value,
+                hours = +inputTime.slice(0, 2),
+                minutes = inputTime.slice(2, 5),
+                countTime = hours + 1,
+                endTime = countTime.toString() + minutes;
 
-            let name = document.getElementById('form-name').value;
-            let email = document.getElementById('form-email').value;
-            let tel = document.getElementById('form-tel').value;
-            let additional = document.getElementById('form-message').value;
+            const name = document.getElementById('form-name').value,
+                email = document.getElementById('form-email').value,
+                tel = document.getElementById('form-tel').value,
+                additional = document.getElementById('form-message').value;
             let arr = [];
 
             for (let i = 0; i < myJson.length; i++) {
@@ -88,7 +90,7 @@ fetch('tables.json')
         function addToLS() {
             //add reservation to Local Storage
             const wrapper = document.getElementById('tables-wrapper');
-            var listId = 'tables';
+            let listId = 'tables';
 
             for (let i = 0; i < myJson.length; i++) {
                 if (myJson[i].isAvailable == false) {
@@ -107,10 +109,10 @@ fetch('tables.json')
 
         function getElemFromLS() {
             //get elements from Local Storage (check date, time, isAvailable) and set availability
-            let inputDay = document.getElementById('form-date').value;
-            let inputTime = document.getElementById('form-time').value;
+            const inputDay = document.getElementById('form-date').value;
+            const inputTime = document.getElementById('form-time').value;
 
-            let local = JSON.parse(localStorage.getItem('tables'));
+            const local = JSON.parse(localStorage.getItem('tables'));
             const wrapper = document.getElementById('tables-wrapper');
             console.log(local);
 
@@ -134,16 +136,15 @@ fetch('tables.json')
         }
 
         //onclick ReserveBtn - add to LS
-        let reserveBtn = document.getElementById('reserve');
+        const reserveBtn = document.getElementById('reserve');
         reserveBtn.addEventListener('click', function () {
             addToLS();
             location.href = "check-out.html";
         });
 
-        //onclick ShowTables - show tables
-        showTables.addEventListener('click', function (e) {
+        function onShowTableList(e) {
             e.preventDefault();
-            let wrapper = document.getElementById('wrapper');
+            const wrapper = document.getElementById('wrapper');
             wrapper.classList.toggle('show');
 
             if (wrapper.classList.contains('show')) {
@@ -166,8 +167,9 @@ fetch('tables.json')
                 element.addEventListener('click', classChange);
                 element.addEventListener('click', setDate);
             });
-        });
-
+        }
+        //onclick ShowTables - show tables
+        showTables.addEventListener('click', onShowTableList);
     })
 
 //disable/enable btn submit

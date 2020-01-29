@@ -1,10 +1,10 @@
 // open photo in gallery
 (function () {
-    var modal = document.getElementById('modal');
+    const modal = document.getElementById('modal');
 
     window.addEventListener('click', function (e) {
         if (e.target && e.target.parentNode.parentNode.classList.contains("gallery-wrapper")) {
-            var img = document.createElement('img');
+            let img = document.createElement('img');
             img.src = e.target.src;
             img.setAttribute("class", "image-popup");
             modal.style.display = "flex";

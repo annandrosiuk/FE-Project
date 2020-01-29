@@ -6,43 +6,45 @@ $.getJSON('goods.json', function (data) {
     showCart();
 
     function showCart() {
-        let out = '';
         let sum = 0;
+        const parts = [];
 
         if ($.isEmptyObject(cart)) {
-            out += '<div class="cart-empty">';
-            out += '<h4>Cart empty. Add goods in your cart.</h4>';
-            out += '<a class="italic" href="shop-page.html"> Go to shop</a>';
-            out += '</div>';
-            $('#empty').html(out);
+            parts.push('<h4>Cart empty. Add goods in your cart.</h4>');
+            parts.push('<a class="italic" href="shop-page.html"> Go to shop</a>');
+
+            const innerValue = parts.join('');
+            const result = `<div class="cart-empty"> ${innerValue} </div>`;
+
+            $('#empty').html(result);
             $('.cart-section .container').css("display", "none");
         } else {
             for (let key in cart) {
-                out += '<tr>';
-                out += '<td class="col-1">';
-                out += '<img class="image-cart img-product" src=" ' + data[key].image + ' ">';
-                out += '</td>';
+                parts.push('<span class="grid-image">');
+                parts.push('<img class="image-cart img-product" src=" ' + data[key].image + ' ">');
+                parts.push('</span>');
 
-                out += '<td class="col-2">' + data[key].name + '</td>';
+                parts.push('<span>' + data[key].name + '</span>');
 
-                out += '<td class="col-3">' + data[key].cost + '&#8372;</td>';
+                parts.push('<span>' + data[key].cost + '&#8372;</span>');
 
-                out += '<td class="col-4 price">';
-                out += '<button class="minus" data-art="' + key + '">-</button>';
-                out += '<p>' + cart[key] + '</p>'
-                out += '<button class="plus" data-art="' + key + '">+</button>';
-                out += '</td>';
+                parts.push('<span class="price">');
+                parts.push('<button class="minus" data-art="' + key + '">-</button>');
+                parts.push('<p>' + cart[key] + '</p>');
+                parts.push('<button class="plus" data-art="' + key + '">+</button>');
+                parts.push('</span>');
 
-                out += '<td class="col-5">' + cart[key] * data[key].cost; + '&#8372;</td>';
+                parts.push('<span>' + cart[key] * data[key].cost + '&#8372;</span>');
 
-                out += '<td class="col-6">';
-                out += '<button class="delete" data-art="' + key + '">X</button>';
-                out += '</td>';
-                out += '</tr>';
+                parts.push('<span>');
+                parts.push('<button class="delete" data-art="' + key + '">X</button>');
+                parts.push('</span>');
 
                 sum += goods[key]['cost'] * cart[key];
             }
-            $('#cart').html(out);
+            const result = parts.join('');
+
+            $('#after').html(result);
             $('.plus').on('click', plusGoods);
             $('.minus').on('click', minusGoods);
             $('.delete').on('click', deleteGoods);
@@ -59,14 +61,14 @@ $.getJSON('goods.json', function (data) {
     }
 
     function plusGoods() {
-        let articul = $(this).attr('data-art');
+        let articul = this.getAttribute('data-art');
         cart[articul]++;
         SaveCartToLS();
         showCart();
     }
 
     function minusGoods() {
-        let articul = $(this).attr('data-art');
+        let articul = this.getAttribute('data-art');
 
         if (cart[articul] > 1) {
             cart[articul]--;
@@ -78,7 +80,7 @@ $.getJSON('goods.json', function (data) {
     }
 
     function deleteGoods() {
-        let articul = $(this).attr('data-art');
+        let articul = this.getAttribute('data-art');
         delete cart[articul];
         SaveCartToLS();
         showCart();
@@ -101,8 +103,8 @@ const inputName = document.getElementById('form-username');
 const inputNum = document.getElementById('form-number');
 const btnSubmit = document.getElementById('cart-submit');
 
-function disBtn(){
-    if(inputName.value.length > 0 && inputNum.value.length > 0){
+function disBtn() {
+    if (inputName.value.length > 0 && inputNum.value.length > 0) {
         btnSubmit.disabled = false;
     } else {
         btnSubmit.disabled = true;
